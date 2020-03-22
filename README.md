@@ -1,24 +1,27 @@
-# README
+# Let's continue
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## サイト概要
+ここでは頑張ってるみんながあなたをほめてくれます。トレーニングのモチベーションアップを図ることができます。
 
-Things you may want to cover:
+## サイトテーマ
+なかなか続かないダイエット、筋トレを楽しく継続しよう！
 
-* Ruby version
+## テーマを選んだ理由
+トレーニングをしていてもなかなか効果が実感出来ず、そこで諦めてしまうことって多いですよね。私自身そうでした。
 
-* System dependencies
+そんな時久しぶりに会った友人に、体が大きくなったね！と言われてとても嬉しかったのを覚えています。
 
-* Configuration
+誰かにほめられれば嬉しいし、何より効果が実感できモチベーションアップに繋がると思いました。
 
-* Database creation
+## ターゲットユーザ
+これからダイエット・筋トレを始める、またはしている２０〜５０代の方。（あくまでもメインユーザーなので、どなたでもご利用いただけます。）
 
-* Database initialization
+## 主な利用シーン
+・　トレーニング内容を投稿します。
 
-* How to run the test suite
+・　トレーニングによる成長を管理します。
 
-* Services (job queues, cache servers, search engines, etc.)
+## 設計書
 
-* Deployment instructions
-
-* ...
+### 機能一覧
+https://docs.google.com/spreadsheets/d/1sev6F3e7hWLoQsvSpMtTa46u_01dsboivt69Flx8UPc/edit#gid=0
