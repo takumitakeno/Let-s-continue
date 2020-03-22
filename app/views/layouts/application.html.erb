@@ -10,6 +10,23 @@
   </head>
 
   <body>
+    <header>
+      <nav class="navbar navbar-inverse bg-dander" style= "padding:20px;">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <%= link_to "Let's continue!", "#", class: "navbar-brand" %>
+              <ul class="nav navbar-nav">
+                <li><%= link_to "home", "#" %></li>
+                <li><%= link_to "about", users_homes_about_path %></li>
+                <li><%= link_to "BMI", users_users_bmi_path %></li>
+                <li><%= link_to "log_in", new_user_session_path %></li>
+                <li><%= link_to "sign_up", new_user_registration_path %></li>
+
+              </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
     <%= yield %>
   </body>
 </html>
