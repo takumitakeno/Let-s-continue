@@ -1,34 +1,39 @@
 <div class="row">
-  <%= render 'users/profire', user: @user %>
+  <%= render 'users/profire', user: current_user %>
   <div class="col-xs-8">
   	<% if @user == current_user %>
   	  <% @posts.each do |post| %>
   	  	<div class="panel panel-default">
   	  	  <div class="panel-body">
+            <%= attachment_image_tag post.user, :profile_image, format: "jpeg", size:"50x50", class: "img-circle" %>
   	  	  	<%= current_user.user_name %>
   	  	  </div>
           <div class="panel-body">
-            <%= post.posts %>
+            <%= post.post %>
           </div>
         </div>
-       <% end %>
+      <% end %>
     <% else %>
       <div class="panel panel-default">
-  	  	  <div class="panel-body">
-  	  	  	<%= @user.user_name %>
-  	  	  </div>
-          <div class="panel-body">
-            <%= @user.intorduction %>
-          </div>
-          <% @posts.each do |post| %>
-  	  	  <div class="panel panel-default">
-  	  	    <div class="panel-body">
-  	  	    </div>
-            <div class="panel-body">
-              <%= post.posts %>
-            </div>
+	  	  <div class="panel-body">
+          <%= attachment_image_tag @user, :profile_image, format: "jpeg", size:"50x50", class: "img-circle" %>
+	  	  	<%= @user.user_name %>
+	  	  </div>
+        <div class="panel-body">
+          <h4><strong>自己紹介</strong></h4>
+          <%= @user.introduction %>
         </div>
-       <% end %>
+      </div>
+      <% @posts.each do |post| %>
+	  	  <div class="panel panel-default">
+          <div class="panel-body">
+            <%= post.post %>
+          </div>
+          <div class="panel-body">
+            <%= attachment_image_tag post, :training_image, format: 'jpeg', size: "200x100" %>
+          </div>
+        </div>
+      <% end %>
     <% end %>
-
+  </div>
 </div>

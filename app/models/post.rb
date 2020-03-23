@@ -1,5 +1,5 @@
 class Post < ApplicationRecord
 	attachment :training_image
 	belongs_to :user
-	validates :posts, presence: true
+	validates :post, presence: true
 end

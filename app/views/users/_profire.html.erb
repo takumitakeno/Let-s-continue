@@ -2,17 +2,39 @@
 	<div class="menu-box">
 	  <ul class="list-group">
       <li class="list-group-item">
-        <%= link_to "編集する", edit_user_path(user), class: "btn btn-info" %>
+        <%= attachment_image_tag user, :profile_image, format: "jpeg", size:"50x50", class: "img-circle" %>
+        <%= link_to "編集する", edit_user_path(user), class: "btn-sm btn-info" %>
       </li>
-  		<li class="list-group-item">フォロー</li>
-  		<li class="list-group-item">フォロワー</li>
   		<li class="list-group-item">
-        <%= link_to "マイページ", user_path(user) %>
+        <span class="glyphicon glyphicon-user" aria-hidden="true">
+          <%= link_to "フォロー", "#" %>
+        </span>
       </li>
-  		<li class="list-group-item">メッセージ</li>
   		<li class="list-group-item">
-        <%= link_to "投稿する", posts_new_path %></li>
-  		<li class="list-group-item">成長を見る</li>
+        <span class="glyphicon glyphicon-user" aria-hidden="true">
+          <%= link_to "フォロワー", "#" %>
+        </span>
+      </li>
+  		<li class="list-group-item">
+        <span class="glyphicon glyphicon-wrench" aria-hidden="true">
+          <%= link_to "マイページ", user_path(user) %>
+        </span>
+      </li>
+  		<li class="list-group-item">
+        <span class="glyphicon glyphicon-envelope" aria-hidden="true">
+          <%= link_to "メッセージ", "#" %>
+        </span>
+      </li>
+  		<li class="list-group-item">
+        <span class="glyphicon glyphicon-pencil" aria-hidden="true">
+          <%= link_to "投稿する", posts_new_path %>
+        </span>
+      </li>
+  		<li class="list-group-item">
+        <span class="glyphicon glyphicon-signal" aria-hidden="true">
+          <%= link_to "成長をみる", "#" %>
+        </span>
+    　</li>
 	  </ul>
 	</div>
 </div>

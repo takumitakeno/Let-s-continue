@@ -34,8 +34,8 @@ ActiveRecord::Schema.define(version: 2020_03_22_013627) do
 
   create_table "posts", force: :cascade do |t|
     t.integer "user_id", null: false
-    t.string "posts", null: false
-    t.integer "training_image_id"
+    t.string "post", null: false
+    t.string "training_image_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -65,7 +65,7 @@ ActiveRecord::Schema.define(version: 2020_03_22_013627) do
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
     t.string "user_name"
-    t.integer "profile_image_id"
+    t.string "profile_image_id"
     t.string "introduction"
     t.boolean "admin", default: false
     t.datetime "created_at", null: false
