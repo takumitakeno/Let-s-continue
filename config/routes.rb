@@ -6,10 +6,12 @@ Rails.application.routes.draw do
   # scope :admins do
   # 	resources :users
   # end
-  root "homes#about"
+  root "posts#index"
   get "homes/about" => "homes#about"
   get "users/bmi" => "homes#bmi"
   resources :users
+  resources :posts
+  get "posts/new" => "posts#new"
 
   namespace :admin do
   	# get "/users" => "admin_users#index"
