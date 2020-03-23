@@ -1,0 +1,17 @@
+<div class="container">
+  <div class="row">
+  	<div claas="col-xs-12">
+  	  <div class="panel panel-default">
+        <div class="panel-body">
+          <%= @user %>
+        </div>
+        <div class="panel-body">
+          <%= form_for (@post) do |f| %>
+            <%= f.text_area :posts, size: "160x10" %><br>
+            <%= f.submit "投稿する", class: "btn btn-default" %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

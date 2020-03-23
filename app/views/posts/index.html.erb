@@ -1,0 +1,15 @@
+<div class="row">
+  <%= render 'users/profire' %>
+  <div class="col-xs-8">
+  	<% @posts.each do |post| %>
+  	  <div class="panel panel-default">
+  	  	<div class="panel-body">
+  	  	  <%= post.user.user_name %>
+  	  	</div>
+        <div class="panel-body">
+          <%= post.posts %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
