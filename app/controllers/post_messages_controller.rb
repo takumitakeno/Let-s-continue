@@ -9,6 +9,13 @@ class PostMessagesController < ApplicationController
           @post_messages = @post.post_messages
         end
 	end
+	def destroy
+		# binding.pry
+		@post = Post.find(params[:post_id])
+		@post_message = current_user.post_messages.find_by(id: params[:id])
+		@post_messages = @post.post_messages
+		@post_message.destroy
+	end
 
 	private
 	def post_message_params
