@@ -1,0 +1,11 @@
+<% if post.gooded_by?(current_user) %>
+  <%= link_to post_goods_path(post), method: :delete, remote: true do %>
+	<span class="glyphicon glyphicon-thumbs-up" aria-hidden="true" style="color: orange;"></span>
+	<%= post.goods.count %> いいね！
+  <% end %>
+<% else %>
+  <%= link_to post_goods_path(post), method: :post, remote: true do %>
+	<span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span>
+	<%= post.goods.count %> いいね
+  <% end %>
+<% end %>

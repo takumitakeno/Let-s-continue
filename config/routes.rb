@@ -10,7 +10,10 @@ Rails.application.routes.draw do
   get "homes/about" => "homes#about"
   get "users/bmi" => "homes#bmi"
   resources :users
-  resources :posts
+  resources :posts do
+    resources :post_messages, only: [:create, :destroy]
+    resource :goods, only: [:create, :destroy]
+  end
   get "posts/new" => "posts#new"
 
   namespace :admin do

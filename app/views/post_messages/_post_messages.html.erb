@@ -1,0 +1,18 @@
+<% post_messages.each do |post_message| %>
+  <div class="panel panel-default">
+    <div class="panel-body">
+      <%= attachment_image_tag post_message.user, :profile_image, format: "jpg", size:"50x50", class: "img-circle"%>
+  	  <%= link_to post_message.user.user_name, user_path(post_message.user) %>
+    </div>
+    <div class="panel-body">
+      <%= simple_format(post_message.post_message) %>
+        <% if post_message.user == current_user %>
+          <%= link_to "コメント削除",  post_post_message_path(post_id: @post.id, id: post_message.id), method: :delete, remote: true, data: {confirm: "本当に削除してもよろしいですか？"}, class: "btn-sm btn-danger destroy_book_#{@post.id}" %>
+        <% end %>
+    </div>
+  </div>
+<% end %>
+
+
+
+
