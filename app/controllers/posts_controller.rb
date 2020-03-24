@@ -15,6 +15,8 @@ class PostsController < ApplicationController
 
 	def show
 	  @post = Post.find(params[:id])
+	  @post_messages = @post.post_messages
+	  @post_message = Post.new
 	end
 
 	def create

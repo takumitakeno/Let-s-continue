@@ -8,16 +8,29 @@
 	  	  </div>
         <div class="panel-body">
           <%= simple_format(@post.post) %>
+          <% if @post.user == current_user %>
+            <div class="row">
+              <div class="col-xs-3 col-xs-offset-9">
+                <%= link_to "編集する", edit_post_path(@post), class: "btn-sm btn-info" %>
+                <%= link_to "削除する", post_path(@post), method: :delete, data: {confirm: "本当に削除してもよろしいですか？"}, class: "btn-sm btn-danger" %>
+              </div>
+            </div>
+          <% end %>
         </div>
       </div>
     </div>
   </div>
-  <% if @post.user == current_user %>
-    <div class="row">
-      <div class="col-xs-3 col-xs-offset-9">
-        <%= link_to "編集する", edit_post_path(@post), class: "btn-sm btn-info" %>
-        <%= link_to "削除する", post_path(@post), method: :delete, data: {confirm: "本当に削除してもよろしいですか？"}, class: "btn-sm btn-danger" %>
+  <div class="row">
+    <div class="col-xs-9">
+      <div id="post_message_area_<%= @post.id %>">
+        <%= render "post_messages/post_messages", post_messages: @post_messages %>
       </div>
     </div>
-  <% end %>
+    <div class="col-xs-3">
+      <%= form_with(model: [@post,@post_messages], remote: true, url: post_post_messages_path(post_id: @post.id)) do |f| %>
+        <%= f.text_area :post_message, class: "form-control", size: "10x10" %><br>
+        <%= f.submit "ほめる", class: "btn-sm btn-default" %>
+      <% end %>
+    </div>
+  </div>
 </div>
