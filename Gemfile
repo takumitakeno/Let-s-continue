@@ -67,3 +67,6 @@ gem 'jquery-rails'
 gem 'pry-rails'
 gem "refile", require: "refile/rails", github: 'manfe/refile'
 gem "refile-mini_magick"
+gem 'omniauth'
+gem 'omniauth-google-oauth2'
+gem 'dotenv-rails'

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_22_013627) do
+ActiveRecord::Schema.define(version: 2020_03_24_094405) do
 
   create_table "events", force: :cascade do |t|
     t.datetime "created_at", null: false
@@ -45,6 +45,15 @@ ActiveRecord::Schema.define(version: 2020_03_22_013627) do
     t.integer "follwer_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "sns_credentials", force: :cascade do |t|
+    t.string "provider"
+    t.string "uid"
+    t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_sns_credentials_on_user_id"
   end
 
   create_table "training_menus", force: :cascade do |t|
