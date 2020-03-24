@@ -8,6 +8,9 @@
 	  	  </div>
         <div class="panel-body">
           <%= simple_format(@post.post) %>
+            <div id="good_<%= @post.id %>">
+              <%= render 'goods/good', post: @post %>
+            </div>
           <% if @post.user == current_user %>
             <div class="row">
               <div class="col-xs-3 col-xs-offset-9">

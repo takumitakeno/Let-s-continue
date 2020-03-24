@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   resources :users
   resources :posts do
     resources :post_messages, only: [:create, :destroy]
+    resource :goods, only: [:create, :destroy]
   end
   get "posts/new" => "posts#new"
 

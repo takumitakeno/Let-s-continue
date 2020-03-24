@@ -1,1 +1,1 @@
-$("#post_message_area_<%= @post.id %>").html("<%= j(render 'post_messages/post_messages', post_messages: @post_messages) %>")
+$("#post_message_area_<%= @post.id %>").html("<%= j(render 'post_messages/post_messages', post: @post) %>")
