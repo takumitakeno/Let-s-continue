@@ -21,6 +21,7 @@
                   <%= render 'goods/good', post: post %>
                 </div>
                 <h5><%= post.post_messages.count %> 件のコメント</h5>
+                <%= render 'posts/tags', post: post %>
               </div>
             </div>
           <% end %>

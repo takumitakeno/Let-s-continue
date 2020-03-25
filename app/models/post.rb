@@ -1,5 +1,6 @@
 class Post < ApplicationRecord
 	attachment :training_image
+	acts_as_taggable
 	belongs_to :user
 	has_many :post_messages, dependent: :destroy
 	has_many :goods, dependent: :destroy
