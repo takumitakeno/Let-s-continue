@@ -18,9 +18,11 @@
           <%= attachment_image_tag post.user, :profile_image, format: "jpg", size:"50x50", class: "img-circle"%>
           <%= link_to post.user.user_name, user_path(post.user) %>
           </div>
-          <div class="panel-body">
-            <%= simple_format(post.post) %>
-          </div>
+          <%= link_to post_path(post) do %>
+            <div class="panel-body">
+              <%= simple_format(post.post) %>
+            </div>
+          <% end %>
           <div class="panel-body">
             <%= attachment_image_tag post, :training_image, format: 'jpeg', size: "200x200", class: "img-rounded" %>
             <div id="good_<%= post.id %>">
