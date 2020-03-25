@@ -15,6 +15,10 @@ class User < ApplicationRecord
   has_many :post_messages, dependent: :destroy
   has_many :goods, dependent: :destroy
 
+  def self.ransackable_attributes auth_object = nil
+    %w(user_name)
+  end
+
 
   # グーグル認証のためのメソッド定義
   def self.without_sns_data(auth)

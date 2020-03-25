@@ -1,0 +1,26 @@
+<div class="container">
+  <div class="row">
+  	<div class="col-xs-12">
+	  <%= search_form_for @q do |f| %>
+	    <%= f.label :ユーザー検索 %>
+	    <%= f.search_field :user_name_cont %>
+	    <%= f.submit "検索する", class: "btn-sm btn-default" %>
+      <% end %>
+    </div>
+    <div class="col-xs-12">
+      <% @users.each do |user| %>
+        <div class="panel panel-info">
+          <div class="panel-body">
+          	<div class="panel-body">
+              <%= attachment_image_tag user, :profile_image, format: "jpeg", size:"50x50", class: "img-circle" %>
+              <%= user.user_name %>
+            </div>
+            <div class="panel-body">
+            <p><strong>自己紹介: </strong><%= user.introduction %></p>
+           </div>
+          </div>
+        </div>
+      <% end %>
+	</div>
+  </div>
+</div>
