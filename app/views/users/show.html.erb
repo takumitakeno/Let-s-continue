@@ -2,39 +2,34 @@
   <div class="row">
     <%= render 'users/profire', user: current_user %>
     <div class="col-xs-8">
-    	<% if @user == current_user %>
-    	  <% @posts.each do |post| %>
-    	  	<div class="panel panel-default">
-    	  	  <div class="panel-body">
-              <%= attachment_image_tag post.user, :profile_image, format: "jpeg", size:"50x50", class: "img-circle" %>
-    	  	  	<%= current_user.user_name %>
-    	  	  </div>
-            <div class="panel-body">
-              <%= post.post %>
-            </div>
-          </div>
-        <% end %>
-      <% else %>
-        <div class="panel panel-default">
-  	  	  <div class="panel-body">
-            <%= attachment_image_tag @user, :profile_image, format: "jpeg", size:"50x50", class: "img-circle" %>
-  	  	  	<%= @user.user_name %>
-  	  	  </div>
+      <div class="panel panel-default">
+  	  	<div class="panel-body">
+          <%= attachment_image_tag @user, :profile_image, format: "jpeg", size:"50x50", class: "img-circle" %>
+  	  	<%= @user.user_name %>
+  	  	</div>
+        <div class="panel-body">
+          <h4><strong>自己紹介</strong></h4>
+          <%= @user.introduction %>
+        </div>
+      </div>
+      <% @posts.each do |post| %>
+  	  	<div class="panel panel-default">
           <div class="panel-body">
-            <h4><strong>自己紹介</strong></h4>
-            <%= @user.introduction %>
+          <%= attachment_image_tag post.user, :profile_image, format: "jpg", size:"50x50", class: "img-circle"%>
+          <%= link_to post.user.user_name, user_path(post.user) %>
+          </div>
+          <div class="panel-body">
+            <%= simple_format(post.post) %>
+          </div>
+          <div class="panel-body">
+            <%= attachment_image_tag post, :training_image, format: 'jpeg', size: "200x200", class: "img-rounded" %>
+            <div id="good_<%= post.id %>">
+              <%= render 'goods/good', post: post %>
+            </div>
+            <h5><%= post.post_messages.count %> 件のコメント</h5>
+            <%= render "posts/tags", post: post %>
           </div>
         </div>
-        <% @posts.each do |post| %>
-  	  	  <div class="panel panel-default">
-            <div class="panel-body">
-              <%= post.post %>
-            </div>
-            <div class="panel-body">
-              <%= attachment_image_tag post, :training_image, format: 'jpeg', size: "200x100" %>
-            </div>
-          </div>
-        <% end %>
       <% end %>
     </div>
   </div>
