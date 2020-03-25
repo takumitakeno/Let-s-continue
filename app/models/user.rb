@@ -6,7 +6,8 @@ class User < ApplicationRecord
 
 
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :validatable
+          :recoverable, :rememberable, :validatable,
+          :omniauthable, omniauth_providers: %i(google_oauth2)
 
   attachment :profile_image
 
@@ -18,7 +19,6 @@ class User < ApplicationRecord
   # グーグル認証のためのメソッド定義
   def self.without_sns_data(auth)
     user = User.where(email: auth.info.email).first
-
       if user.present?
         sns = SnsCredential.create(
           uid: auth.uid,
@@ -27,7 +27,7 @@ class User < ApplicationRecord
         )
       else
         user = User.new(
-          nickname: auth.info.name,
+          user_name: auth.info.name,
           email: auth.info.email,
         )
         sns = SnsCredential.new(
@@ -35,14 +35,14 @@ class User < ApplicationRecord
           provider: auth.provider
         )
       end
-      return { user: user ,sns: sns}
-    end
+    return { user: user ,sns: sns}
+   end
 
    def self.with_sns_data(auth, snscredential)
     user = User.where(id: snscredential.user_id).first
     unless user.present?
       user = User.new(
-        nickname: auth.info.name,
+        user_name: auth.info.name,
         email: auth.info.email,
       )
     end

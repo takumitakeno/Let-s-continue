@@ -26,6 +26,25 @@
           <% end %>
         <% end %>
       </div>
+    <% else %>
+      <div class="col-xs-12">
+        <% @posts.each do |post| %>
+          <%= link_to post_path(post) do %>
+            <div class="panel panel-info">
+              <div class="panel-body">
+                <%= attachment_image_tag post.user, :profile_image, format: "jpeg", size:"50x50", class: "img-circle" %>
+                <%= post.user.user_name %>
+              </div>
+              <div class="panel-body">
+                <%= simple_format(post.post) %>
+              </div>
+              <div class="panel-body">
+                <%= attachment_image_tag post, :training_image, format: 'jpeg', size: "200x100" %>
+              </div>
+            </div>
+          <% end %>
+        <% end %>
+      </div>
     <% end %>
   </div>
 </div>

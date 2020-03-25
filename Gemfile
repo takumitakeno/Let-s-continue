@@ -70,3 +70,5 @@ gem "refile-mini_magick"
 gem 'omniauth'
 gem 'omniauth-google-oauth2'
 gem 'dotenv-rails'
+gem 'bootstrap-social-rails'
+gem 'font-awesome-rails'
