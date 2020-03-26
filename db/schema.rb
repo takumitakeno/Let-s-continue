@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_25_034261) do
+ActiveRecord::Schema.define(version: 2020_03_26_033345) do
 
   create_table "events", force: :cascade do |t|
     t.datetime "created_at", null: false
@@ -40,11 +40,14 @@ ActiveRecord::Schema.define(version: 2020_03_25_034261) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "relaionships", force: :cascade do |t|
+  create_table "relationships", force: :cascade do |t|
     t.integer "followed_id", null: false
-    t.integer "follwer_id", null: false
+    t.integer "follower_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["followed_id"], name: "index_relationships_on_followed_id"
+    t.index ["follower_id", "followed_id"], name: "index_relationships_on_follower_id_and_followed_id", unique: true
+    t.index ["follower_id"], name: "index_relationships_on_follower_id"
   end
 
   create_table "sns_credentials", force: :cascade do |t|
@@ -100,7 +103,7 @@ ActiveRecord::Schema.define(version: 2020_03_25_034261) do
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.string "user_name"
+    t.string "user_name", null: false
     t.string "profile_image_id"
     t.string "introduction"
     t.boolean "admin", default: false

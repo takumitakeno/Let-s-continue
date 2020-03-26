@@ -7,12 +7,12 @@
       </li>
   		<li class="list-group-item">
         <span class="glyphicon glyphicon-user" aria-hidden="true">
-          <%= link_to "フォロー", "#" %>
+          <%= link_to "フォロー", "#" %> <%= user.followings.count %>
         </span>
       </li>
   		<li class="list-group-item">
         <span class="glyphicon glyphicon-user" aria-hidden="true">
-          <%= link_to "フォロワー", "#" %>
+          <%= link_to "フォロワー", "#" %> <%= user.followers.count %>
         </span>
       </li>
   		<li class="list-group-item">
