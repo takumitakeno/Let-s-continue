@@ -39,8 +39,14 @@
         <span class="glyphicon glyphicon-search" aria-hidden="true">
           <%= link_to "ユーザー検索", users_path %>
         </span>
-    　</li>
-    　
+      </li>
+      <% if current_user == @user || current_user.admin? %>
+        <li class="list-group-item">
+          <span class="glyphicon glyphicon-cog" aria-hidden" aria-hidden="true">
+            <%= link_to "管理者画面へ", admin_homes_top_path %>
+          </span>
+    　  </li>
+      <% end %> 　
 	  </ul>
 	</div>
 </div>

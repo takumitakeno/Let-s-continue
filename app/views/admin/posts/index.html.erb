@@ -1,0 +1,28 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-4 col-xs-offset-8">
+	  <%= search_form_for @q do |f| %>
+	    <%= f.label :投稿検索 %>
+	    <%= f.search_field :post_cont %>
+	    <%= f.submit "検索する", class: "glyphicon glyphicon-search" %>
+      <% end %>
+    </div>
+  	<%= render 'admin/homes/admin_menu' %>
+  	<div class="col-xs-8">
+      <% @posts.each do |post| %>
+        <div class="panel panel-info">
+          <div class="panel-body">
+          	<div class="panel-body">
+              <%= attachment_image_tag post.user, :profile_image, format: "jpeg", size:"50x50", fallback: "no_image.jpg", class: "img-circle" %>
+              <%= post.user.user_name %>
+              <%= link_to "詳細へ", "#", class: "btn btn-danger" %>
+            </div>
+            <div class="panel-body">
+              <p><strong>投稿内容: </strong><%= post.post %></p>
+             </div>
+          </div>
+        </div>
+      <% end %>
+	</div>
+  </div>
+</div>
