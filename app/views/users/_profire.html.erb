@@ -2,17 +2,17 @@
 	<div class="menu-box">
 	  <ul class="list-group">
       <li class="list-group-item">
-        <%= attachment_image_tag user, :profile_image, format: "jpeg", size:"50x50", class: "img-circle" %>
+        <%= attachment_image_tag user, :profile_image, format: "jpeg", size:"50x50", fallback: "no_image.jpg", class: "img-circle" %>
         <%= link_to "編集する", edit_user_path(user), class: "btn-sm btn-info" %>
       </li>
   		<li class="list-group-item">
         <span class="glyphicon glyphicon-user" aria-hidden="true">
-          <%= link_to "フォロー", "#" %> <%= user.followings.count %>
+          <%= link_to "フォロー", follows_user_path(user) %> <%= user.followings.count %>
         </span>
       </li>
   		<li class="list-group-item">
         <span class="glyphicon glyphicon-user" aria-hidden="true">
-          <%= link_to "フォロワー", "#" %> <%= user.followers.count %>
+          <%= link_to "フォロワー", followers_user_path(user) %> <%= user.followers.count %>
         </span>
       </li>
   		<li class="list-group-item">
