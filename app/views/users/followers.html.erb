@@ -1,0 +1,20 @@
+<div class="container">
+  <h2>フォロワー 一覧</h2>
+  <div class="row">
+  	<%= render 'users/profire', user: current_user %>
+  	<div class=col-xs-8>
+  	  <% @users.each do |user| %>
+        <div class="panel panel-info">
+          <div class="panel-body">
+            <div class="panel-body">
+              <%= attachment_image_tag user, :profile_image, format: "jpeg", size:"50x50", fallback: "no_image.jpg",  class: "img-circle" %>
+              <%= link_to user.user_name, user_path(user) %>
+              <%= link_to "フォロー数:", follows_user_path(user) %><%= user.followings.count %>
+	          <%=  link_to "フォロワー数:", followers_user_path(user) %><%= user.followers.count %>
+			  <%= link_to '詳細', user_path(user) %>
+            </div>
+          </div>
+        </div>
+      <% end %>
+  </div>
+</div>

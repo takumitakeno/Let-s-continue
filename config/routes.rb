@@ -13,14 +13,21 @@ Rails.application.routes.draw do
   # end
 
   root 'posts#index'
+  get "posts/new" => "posts#new"
   get "homes/about" => "homes#about"
   get "users/bmi" => "homes#bmi"
-  resources :users
+
+  resources :users do
+    get :follows, on: :member
+    get :followers, on: :member
+  end
+
+  resources :relation_ships, only: [:create, :destroy]
+
   resources :posts do
     resources :post_messages, only: [:create, :destroy]
     resource :goods, only: [:create, :destroy]
   end
-  get "posts/new" => "posts#new"
 
   namespace :admin do
   	# get "/users" => "admin_users#index"

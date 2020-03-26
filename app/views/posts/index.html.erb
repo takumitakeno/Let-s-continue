@@ -7,8 +7,15 @@
           <%= link_to post_path(post) do %>
         	  <div class="panel panel-info">
         	  	<div class="panel-body">
-                <%= attachment_image_tag post.user, :profile_image, format: "jpeg", size:"50x50", class: "img-circle" %>
+                <%= attachment_image_tag post.user, :profile_image, format: "jpeg", size:"50x50", class: "img-circle", fallback: "no_image.jpg" %>
         	  	  <%= post.user.user_name %>
+                <% if current_user != post.user %>
+                  <% if post.user.followed_by?(current_user) %>
+                    <%=link_to "フォロー済み", relation_ship_path(post, params: {followed_id: post.user.id}), class: "btn btn-primary",method: :delete %>
+                  <% else %>
+                      <%=link_to "フォロー", relation_ships_path(post, params: {followed_id: post.user.id}), class: "btn btn-default",method: :post %>
+                  <% end %>
+                <% end %>
         	  	</div>
               <div class="panel-body">
                 <%= simple_format(post.post) %>
