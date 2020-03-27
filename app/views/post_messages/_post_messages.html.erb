@@ -1,14 +1,26 @@
 <% post_messages.each do |post_message| %>
   <div class="panel panel-default">
     <div class="panel-body">
-      <%= attachment_image_tag post_message.user, :profile_image, format: "jpg", size:"50x50", class: "img-circle"%>
-  	  <%= link_to post_message.user.user_name, user_path(post_message.user) %>
+      <div class="row">
+        <div class="col-xs-2">
+          <%= attachment_image_tag post_message.user, :profile_image, format: "jpg", size:"50x50", class: "img-circle", fallback: "no_image.jpg"%>
+        </div>
+        <div class="col-xs-7">
+  	      <%= link_to post_message.user.user_name, user_path(post_message.user) %>
+        </div>
+        <% if post_message.user == current_user %>
+          <div class="col-xs-3">
+            <%= link_to "コメント削除",  post_post_message_path(post_id: @post.id, id: post_message.id), method: :delete, remote: true, data: {confirm: "本当に削除してもよろしいですか？"}, class: "btn btn-danger destroy_book_#{@post.id}" %>
+          </div>
+        <% end %>
+      </div>
     </div>
     <div class="panel-body">
-      <%= simple_format(post_message.post_message) %>
-        <% if post_message.user == current_user %>
-          <%= link_to "コメント削除",  post_post_message_path(post_id: @post.id, id: post_message.id), method: :delete, remote: true, data: {confirm: "本当に削除してもよろしいですか？"}, class: "btn-sm btn-danger destroy_book_#{@post.id}" %>
-        <% end %>
+      <div class="row">
+        <div class="col-xs-7 col-xs-offset-2">
+          <%= simple_format(post_message.post_message) %>
+        </div>
+      </div>
     </div>
   </div>
 <% end %>

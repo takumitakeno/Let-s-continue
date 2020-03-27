@@ -7,21 +7,40 @@
           <%= link_to post_path(post) do %>
         	  <div class="panel panel-info">
         	  	<div class="panel-body">
-                <%= attachment_image_tag post.user, :profile_image, format: "jpeg", size:"50x50", class: "img-circle", fallback: "no_image.jpg" %>
-        	  	  <%= post.user.user_name %>
-                <% if current_user != post.user %>
-                  <% if post.user.followed_by?(current_user) %>
-                    <%=link_to "フォロー済み", relation_ship_path(post, params: {followed_id: post.user.id}), class: "btn btn-primary",method: :delete %>
-                  <% else %>
-                      <%=link_to "フォロー", relation_ships_path(post, params: {followed_id: post.user.id}), class: "btn btn-default",method: :post %>
-                  <% end %>
-                <% end %>
+                <div class="row">
+                  <div class="col-xs-2">
+                    <%= attachment_image_tag post.user, :profile_image, format: "jpeg", size:"50x50", class: "img-circle", fallback: "no_image.jpg" %>
+                  </div>
+                  <div class="col-xs-7">
+        	  	      <%= post.user.user_name %>
+                  </div>
+                  <div class="col-xs-2">
+                    <% if current_user != post.user %>
+                      <% if post.user.followed_by?(current_user) %>
+                        <%=link_to "フォロー済み", relation_ship_path(post, params: {followed_id: post.user.id}), class: "btn btn-primary",method: :delete %>
+                      <% else %>
+                          <%=link_to "フォローする", relation_ships_path(post, params: {followed_id: post.user.id}), class: "btn btn-default",method: :post %>
+                      <% end %>
+                    <% end %>
+                  </div>
+                </div>
         	  	</div>
               <div class="panel-body">
-                <%= simple_format(post.post) %>
+                <div class="row">
+                  <div class="col-xs-2">
+                    <p><strong>投稿内容</strong></p>
+                  </div>
+                  <div class="col-xs-9">
+                    <%= simple_format(post.post) %>
+                  </div>
+                </div>
               </div>
               <div class="panel-body">
-                <%= attachment_image_tag post, :training_image, format: 'jpeg', size: "200x100", class: "img-rounded" %>
+                <div class="row">
+                  <div class="col-xs-9 col-xs-offset-2">
+                    <%= attachment_image_tag post, :training_image, format: 'jpeg', size: "200x100", class: "img-rounded" %>
+                  </div>
+                </div>
               </div>
               <div class="panel-body">
                 <div id="good_<%= post.id %>">
@@ -40,14 +59,31 @@
           <%= link_to post_path(post) do %>
             <div class="panel panel-info">
               <div class="panel-body">
-                <%= attachment_image_tag post.user, :profile_image, format: "jpeg", size:"50x50", class: "img-circle" %>
-                <%= post.user.user_name %>
+                <div class="row">
+                  <div class="col-xs-2">
+                    <%= attachment_image_tag post.user, :profile_image, format: "jpeg", size:"50x50", fallback: "no_image.jpg",class: "img-circle" %>
+                  </div>
+                  <div class="col-xs-2">
+                    <%= post.user.user_name %>
+                  </div>
+                </div>
               </div>
               <div class="panel-body">
-                <%= simple_format(post.post) %>
+                <div class="row">
+                  <div class="col-xs-2">
+                    <p><strong>投稿内容</strong></p>
+                  </div>
+                  <div class="col-xs-9">
+                    <%= simple_format(post.post) %>
+                  </div>
+                </div>
               </div>
               <div class="panel-body">
-                <%= attachment_image_tag post, :training_image, format: 'jpeg', size: "200x100" %>
+                <div class="row">
+                  <div class="col-xs-9 col-xs-offset-2">
+                    <%= attachment_image_tag post, :training_image, format: 'jpeg', size: "200x100" %>
+                  </div>
+                </div>
               </div>
             </div>
           <% end %>
