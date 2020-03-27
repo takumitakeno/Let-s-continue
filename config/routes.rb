@@ -16,6 +16,7 @@ Rails.application.routes.draw do
   get "posts/new" => "posts#new"
   get "homes/about" => "homes#about"
   get "users/bmi" => "homes#bmi"
+  get "posts/tags" => "posts#post_tags_index"
 
   resources :users do
     get :follows, on: :member
@@ -35,6 +36,7 @@ Rails.application.routes.draw do
     get "posts/tags" => "posts#post_tags_index"
   	resources :users, only: [:index, :show]
     resources :posts, only: [:index, :show]
+    resources :training_menus, only: [:index, :edit, :create, :update, :destroy]
 
   end
 end

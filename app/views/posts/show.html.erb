@@ -1,8 +1,9 @@
 <div class="container">
   <div class="row">
     <%= render 'users/profire', user: current_user %>
-  	<div class="col-xs-8">
-	    <div class="panel panel-default">
+
+  	<div class="col-xs-9">
+	    <div class="panel panel-info">
 	  	  <div class="panel-body">
           <div class="row">
             <div class="col-xs-2">
@@ -54,17 +55,14 @@
           </div>
         </div>
       </div>
-      <div class="panel-body">
-        <div class="row">
-          <div class="col-xs-9">
-            <div id="post_message_area_<%= @post.id %>">
-              <%= render "post_messages/post_messages", post_messages: @post_messages %>
-            </div>
-          </div>
+      <h3>コメント一覧</h3>
+      <div id="post_message_area_<%= @post.id %>">
+        <%= render "post_messages/post_messages", post_messages: @post_messages %>
+      </div>
           <div class="col-xs-3">
             <%= form_with(model: [@post,@post_messages], remote: true, url: post_post_messages_path(post_id: @post.id)) do |f| %>
-              <%= f.text_area :post_message, class: "form-control", size: "10x10" %><br>
-              <%= f.submit "応援する", class: "btn-sm btn-default" %>
+              <%= f.text_area :post_message, class: "form-control" %><br>
+              <%= f.submit "コメントする", class: "btn-sm btn-default" %>
             <% end %>
           </div>
         </div>

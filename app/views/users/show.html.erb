@@ -1,8 +1,8 @@
 <div class="container">
   <div class="row">
     <%= render 'users/profire', user: current_user %>
-    <div class="col-xs-8">
-      <div class="panel panel-default">
+    <div class="col-xs-9">
+      <div class="panel panel-info">
   	  	<div class="panel-body">
           <div class="row">
             <div class="col-xs-2">
@@ -22,7 +22,7 @@
                 <% if @user.followed_by?(current_user) %>
                   <%=link_to "フォロー済", relation_ship_path(@user, params: {followed_id: @user.id}), class: "btn btn-primary",method: :delete %>
                 <% else %>
-                    <%=link_to "フォロー", relation_ships_path(@user, params: {followed_id: @user.id}), class: "btn btn-default",method: :post %>
+                  <%=link_to "フォローする", relation_ships_path(@user, params: {followed_id: @user.id}), class: "btn btn-default",method: :post %>
                 <% end %>
               <% end %>
             </div>
@@ -41,7 +41,7 @@
       </div>
 
       <% @posts.each do |post| %>
-  	  	<div class="panel panel-default">
+  	  	<div class="panel panel-info">
           <div class="panel-body">
             <div class="row">
               <div class="col-xs-2">
@@ -65,12 +65,24 @@
             </div>
           <% end %>
           <div class="panel-body">
-            <%= attachment_image_tag post, :training_image, format: 'jpeg', size: "200x200", class: "img-rounded" %>
-            <div id="good_<%= post.id %>">
-              <%= render 'goods/good', post: post %>
+            <div class="row">
+              <div class="col-xs-8 col-xs-offset-2">
+                <%= attachment_image_tag post, :training_image, format: 'jpeg', size: "200x200", class: "img-rounded" %>
+              </div>
             </div>
-            <h5><%= post.post_messages.count %> 件のコメント</h5>
-            <%= render "posts/tags", post: post %>
+          </div>
+          <div class="panel-body">
+            <div class="row">
+              <div class="col-xs-3">
+                <div id="good_<%= post.id %>">
+                  <%= render 'goods/good', post: post %>
+                </div>
+                <h5><%= post.post_messages.count %> 件のコメント</h5>
+              </div>
+              <div class="col-xs-12">
+                <%= render "posts/tags", post: post %>
+              </div>
+            </div>
           </div>
         </div>
       <% end %>
