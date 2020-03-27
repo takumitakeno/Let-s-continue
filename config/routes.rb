@@ -32,7 +32,9 @@ Rails.application.routes.draw do
   namespace :admin do
   	# get "/users" => "admin_users#index"
     get "homes/top" => "homes#top"
+    get "posts/tags" => "posts#post_tags_index"
   	resources :users, only: [:index, :show]
     resources :posts, only: [:index, :show]
+
   end
 end

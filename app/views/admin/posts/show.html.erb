@@ -1,0 +1,60 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-2">
+      <p>ここは管理人専用です</p>
+    </div>
+  </div>
+  <div class="row">
+    <%= render 'admin/homes/admin_menu' %>
+    <div class="col-xs-8">
+        <div class="panel panel-warning">
+      	  <div class="panel-body">
+            <div class="row">
+              <div class="col-xs-2">
+                <%= attachment_image_tag @post.user, :profile_image, format: "jpg", size:"50x50", class: "img-circle", fallback: "no_image.jpg"%>
+              </div>
+              <div class="col-xs-7">
+          	  	<%= link_to @post.user.user_name, admin_user_path(@post.user) %>
+              </div>
+              <% if current_user.admin? && !(current_user == @user) %>
+                <div class="col-xs-2">
+                  <%= link_to "削除する", post_path(@post), method: :delete, data: {confirm: "本当に削除してもよろしいですか？"}, class: "btn btn-danger" %>
+                </div>
+              <% end %>
+      	    </div>
+          </div>
+          <div class="panel-body">
+            <div class="row">
+              <div class="col-xs-2">
+                <p><strong>投稿内容</strong></p>
+              </div>
+              <div class="col-xs-10">
+                <%= simple_format(@post.post) %>
+              </div>
+            </div>
+          </div>
+          <div class="panel-body">
+            <div class="row">
+              <div class="col-xs-10 col-xs-offset-2">
+                <%= attachment_image_tag @post, :training_image, format: 'jpeg', size: "200x100", class: "img-rounded" %>
+              </div>
+            </div>
+          </div>
+          <div class="panel-body">
+            <div class="row">
+              <div class="col-xs-3">
+                <h5><%= @post.post_messages.count %> 件のコメント</h5>
+              </div>
+              <div class="col-xs-12">
+                <%= render "admin/posts/tags", post: @post %>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="post_message_area_<%= @post.id %>">
+          <%= render "post_messages/post_messages", post_messages: @post_messages %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
