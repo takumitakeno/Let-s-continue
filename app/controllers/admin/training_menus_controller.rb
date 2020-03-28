@@ -33,7 +33,7 @@ class Admin::TrainingMenusController < ApplicationController
 
     private
     def training_menu_params
-        params.require(:training_menu).permit(:training_manu)
+        params.require(:training_menu).permit(:menu)
     end
 	def admin_user
       redirect_to root_path unless current_user.admin?

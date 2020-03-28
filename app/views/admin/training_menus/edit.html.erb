@@ -7,12 +7,12 @@
   	  	  <h4>トレーニングメニュー登録</h4>
         </div>
         <div class="panel-body">
-	  	  <%= form_for(@training_menu, url: admin_training_menu_path) do |f| %>
-	        <%= f.text_field :training_manu, class: "form-control" %>
-		    <%= f.submit "変更する", class: "btn btn-primary" %>
-	      <% end %>
+  	  	  <%= form_for(@training_menu, url: admin_training_menu_path) do |f| %>
+  	        <%= f.text_field :menu, class: "form-control" %>
+  		      <%= f.submit "変更する", class: "btn btn-primary" %>
+  	      <% end %>
+	      </div>
 	    </div>
-	  </div>
   	</div>
   </div>
 </div>
