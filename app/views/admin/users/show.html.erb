@@ -1,0 +1,79 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-2">
+      <p>ここは管理人専用です</p>
+    </div>
+  </div>
+  <div class="row">
+  	<%= render 'admin/homes/admin_menu' %>
+  	<div class="col-xs-9">
+      <div class="panel panel-warning">
+  	  	<div class="panel-body">
+          <div class="row">
+            <div class="col-xs-2">
+              <%= attachment_image_tag @user, :profile_image, format: "jpeg", size:"50x50", fallback: "no_image.jpg",  class: "img-circle" %>
+            </div>
+            <div class="col-xs-8">
+  	  	      <%= @user.user_name %>
+            </div>
+            <div class="col-xs-2">
+              <% if current_user.admin? && !(current_user == @user) %>
+                <%= link_to "退会させる", user_registration_path, method: :delete, data: {confirm: "本当に削除してもよろしいですか？"}, class: "btn btn-danger" %>
+              <% end %>
+            </div>
+          </div>
+  	  	</div>
+        <div class="panel-body">
+          <div class="row">
+            <div class="col-xs-2">
+              <h4><strong>自己紹介</strong></h4>
+            </div>
+            <div class="col-xs-10">
+              <%= simple_format(@user.introduction) %>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <h3>投稿一覧</h3>
+      </div>
+      <% @posts.each do |post| %>
+  	  	<div class="panel panel-warning">
+          <div class="panel-body">
+            <div class="row">
+              <div class="col-xs-2">
+                <%= attachment_image_tag post.user, :profile_image, format: "jpg", size:"50x50", fallback: "no_image.jpg",  class: "img-circle"%>
+              </div>
+              <div class="col-xs-8">
+                <%= post.user.user_name %>
+              </div>
+              <div class="col-xs-2">
+                <%= link_to "投稿詳細へ", admin_post_path(post), class: "btn btn-warning" %>
+              </div>
+            </div>
+          </div>
+          <div class="panel-body">
+            <div class="row">
+              <div class="col-xs-2">
+                <h4><strong>投稿</strong></h4>
+              </div>
+              <div class="col-xs-10">
+                <%= simple_format(post.post) %>
+              </div>
+            </div>
+          </div>
+          <div class="panel-body">
+            <div class="row">
+              <div class="col-xs-7 col-xs-offset-2">
+                <%= attachment_image_tag post, :training_image, format: 'jpeg', size: "200x100", class: "img-rounded" %>
+              </div>
+              <div class="col-xs-12">
+                <%= render "admin/posts/tags", post: post %>
+              </div>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

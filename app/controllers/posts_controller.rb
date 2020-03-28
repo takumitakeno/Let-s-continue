@@ -1,11 +1,17 @@
 class PostsController < ApplicationController
 	before_action :authenticate_user!, except:[:index]
-	def index
-	  if params[:tag_name]
+	def post_tags_index
+		if params[:tag_name]
 	     @posts = Post.tagged_with("#{params[:tag_name]}")
 	  else
 	     @posts = Post.all
 	  end
+    end
+
+
+	def index
+		@q = Post.ransack(params[:q])
+        @posts = @q.result(distinct: true)
 	end
 
 	def new

@@ -1,25 +1,16 @@
 <div class="container">
-  <% if user_signed_in? %>
-    <div class="row">
-      <div class="col-xs-4 col-xs-offset-8">
-        <%= search_form_for @q, url: posts_path do |f| %>
-          <%= f.label :投稿検索 %>
-          <%= f.search_field :post_cont %>
-          <%= f.submit "検索する", class: "glyphicon glyphicon-search" %>
-        <% end %>
-      </div>
-    </div>
-    <%= render 'users/profire', user: current_user %>
+  <div class="row">
+  	<%= render 'users/profire', user: current_user %>
     <div class="col-xs-9">
-    	<% @posts.each do |post| %>
-    	  <div class="panel panel-info">
-    	  	<div class="panel-body">
+      <% @posts.each do |post| %>
+        <div class="panel panel-info">
+          <div class="panel-body">
             <div class="row">
               <div class="col-xs-2">
                 <%= attachment_image_tag post.user, :profile_image, format: "jpeg", size:"50x50", class: "img-circle", fallback: "no_image.jpg" %>
               </div>
               <div class="col-xs-7">
-    	  	      <%= link_to post.user.user_name, user_path(post.user) %>
+                <%= link_to post.user.user_name, user_path(post.user) %>
               </div>
               <div class="col-xs-2">
                 <% if current_user != post.user %>
@@ -31,7 +22,7 @@
                 <% end %>
               </div>
             </div>
-    	  	</div>
+          </div>
           <div class="panel-body">
             <div class="row">
               <div class="col-xs-2">
@@ -66,44 +57,6 @@
           </div>
         </div>
       <% end %>
-    </div>
-  <% else %>
-    <div class="row">
-      <div class="col-xs-8 col-xs-offset-2">
-        <% @posts.each do |post| %>
-          <%= link_to post_path(post) do %>
-            <div class="panel panel-info">
-              <div class="panel-body">
-                <div class="row">
-                  <div class="col-xs-2">
-                    <%= attachment_image_tag post.user, :profile_image, format: "jpeg", size:"50x50", fallback: "no_image.jpg",class: "img-circle" %>
-                  </div>
-                  <div class="col-xs-2">
-                    <%= post.user.user_name %>
-                  </div>
-                </div>
-              </div>
-              <div class="panel-body">
-                <div class="row">
-                  <div class="col-xs-2">
-                    <p><strong>投稿内容</strong></p>
-                  </div>
-                  <div class="col-xs-9">
-                    <%= simple_format(post.post) %>
-                  </div>
-                </div>
-              </div>
-              <div class="panel-body">
-                <div class="row">
-                  <div class="col-xs-9 col-xs-offset-2">
-                    <%= attachment_image_tag post, :training_image, format: 'jpeg', size: "200x100" %>
-                  </div>
-                </div>
-              </div>
-            </div>
-          <% end %>
-        <% end %>
-      </div>
-    <% end %>
+	  </div>
   </div>
 </div>

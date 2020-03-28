@@ -1,42 +1,72 @@
 <div class="container">
   <div class="row">
-  	<div class="col-xs-12">
-	    <div class="panel panel-default">
+    <%= render 'users/profire', user: current_user %>
+
+  	<div class="col-xs-9">
+	    <div class="panel panel-info">
 	  	  <div class="panel-body">
-          <%= attachment_image_tag @post.user, :profile_image, format: "jpg", size:"50x50", class: "img-circle"%>
-  	  	  <%= link_to @post.user.user_name, user_path(@post.user) %>
-	  	  </div>
-        <div class="panel-body">
-          <%= simple_format(@post.post) %>
-          <%= attachment_image_tag @post, :training_image, format: 'jpeg', size: "200x200", class: "img-rounded" %>
-          <div id="good_<%= @post.id %>">
-            <%= render 'goods/good', post: @post %>
-          </div>
-          <h5><%= @post.post_messages.count %> 件のコメント</h5>
-          <%= render "posts/tags", post: @post %>
-          <% if @post.user == current_user %>
-            <div class="row">
-              <div class="col-xs-3 col-xs-offset-9">
+          <div class="row">
+            <div class="col-xs-2">
+              <%= attachment_image_tag @post.user, :profile_image, format: "jpg", size:"50x50", class: "img-circle", fallback: "no_image.jpg"%>
+            </div>
+            <div class="col-xs-6">
+        	  	<%= link_to @post.user.user_name, user_path(@post.user) %>
+            </div>
+            <% if @post.user == current_user %>
+              <div class="col-xs-4">
                 <%= link_to "編集する", edit_post_path(@post), class: "btn-sm btn-info" %>
                 <%= link_to "削除する", post_path(@post), method: :delete, data: {confirm: "本当に削除してもよろしいですか？"}, class: "btn-sm btn-danger" %>
               </div>
+            <% end %>
+	  	    </div>
+        </div>
+        <div class="panel-body">
+          <div class="row">
+            <div class="col-xs-2">
+              <p><strong>投稿内容</strong></p>
             </div>
-          <% end %>
+            <div class="col-xs-9">
+              <%= simple_format(@post.post) %>
+            </div>
+          </div>
+        </div>
+        <div class="panel-body">
+          <div class="row">
+            <div class="col-xs-7 col-xs-offset-2">
+              <%= attachment_image_tag @post, :training_image, format: 'jpeg', size: "200x100", class: "img-rounded" %>
+            </div>
+          </div>
+        </div>
+        <div class="panel-body">
+          <div class="row">
+            <div class="col-xs-2">
+              <div id="good_<%= @post.id %>">
+                <%= render 'goods/good', post: @post %>
+              </div>
+              <h5><%= @post.post_messages.count %> 件のコメント</h5>
+            </div>
+          </div>
+        </div>
+        <div class="panel-body">
+          <div class="row">
+            <div class="col-xs-2">
+              <%= render "posts/tags", post: @post %>
+            </div>
+          </div>
         </div>
       </div>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-xs-9">
+      <h3>コメント一覧</h3>
       <div id="post_message_area_<%= @post.id %>">
         <%= render "post_messages/post_messages", post_messages: @post_messages %>
       </div>
-    </div>
-    <div class="col-xs-3">
-      <%= form_with(model: [@post,@post_messages], remote: true, url: post_post_messages_path(post_id: @post.id)) do |f| %>
-        <%= f.text_area :post_message, class: "form-control", size: "10x10" %><br>
-        <%= f.submit "応援する", class: "btn-sm btn-default" %>
-      <% end %>
+          <div class="col-xs-3">
+            <%= form_with(model: [@post,@post_messages], remote: true, url: post_post_messages_path(post_id: @post.id)) do |f| %>
+              <%= f.text_area :post_message, class: "form-control" %><br>
+              <%= f.submit "コメントする", class: "btn-sm btn-default" %>
+            <% end %>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </div>
