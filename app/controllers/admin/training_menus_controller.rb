@@ -18,9 +18,16 @@ class Admin::TrainingMenusController < ApplicationController
 	end
 
 	def update
+	  training_menu = TrainingMenu.find(params[:id])
+	  training_menu.update(training_menu_params)
+	  redirect_to admin_training_menus_path
     end
 
     def destroy
+      training_menu = TrainingMenu.find(params[:id])
+      training_menu.destroy
+      binding.pry
+      redirect_to admin_training_menus_path
     end
 
 
@@ -31,6 +38,4 @@ class Admin::TrainingMenusController < ApplicationController
 	def admin_user
       redirect_to root_path unless current_user.admin?
     end
-
-    
 end

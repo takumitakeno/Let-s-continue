@@ -3,33 +3,37 @@
   	<%= render 'admin/homes/admin_menu' %>
   	<div class="col-xs-9">
   	  <div class="panel panel-warning">
+  	  	<div class="panel-heading">
+  	  	  <h4>トレーニングメニュー登録</h4>
+        </div>
         <div class="panel-body">
 	  	  <%= form_for(@training_menu, url: admin_training_menus_path) do |f| %>
-	        <h4>トレーニングメニュー登録</h4>
 	        <%= f.text_field :training_manu, class: "form-control" %>
-		    <%= f.submit "登録する", class: "btn btn-default" %>
+		    <%= f.submit "登録する", class: "btn btn-primary" %>
 	      <% end %>
 	    </div>
 	  </div>
 
       <div class="row">
       	<div class="col-xs-12">
+      	  <h4>メニュー一覧</h4>
 	      <table class="table table-bordered">
 	      	<thead>
 	      	  <tr>
+	      	  	<th>番号</th>
 	      	  	<th>id</th>
 	      	  	<th>menu_name</th>
-	      	  	<th></th>
-	      	  	<th></th>
+	      	  	<th colspan="2">項目選択</th>
 	      	  </tr>
 	      	</thead>
 	        <% @training_menus.each do |training_menu| %>
 	        <tbody>
 	          <tr>
+	          	<td></td>
 	        	<td><%= training_menu.id %></td>
 	            <td><%= training_menu.training_manu %></td>
 	            <td><%= link_to "編集", edit_admin_training_menu_path(training_menu) %></td>
-	            <td><%= link_to "削除", "#" %></td>
+	            <td><%= link_to "削除", admin_training_menu_path(training_menu), method: :delete, data: {confirm: "本当に削除してもよろしいですか？"} %></td>
 	          </tr>
 	  	  	</tbody>
   	        <% end %>

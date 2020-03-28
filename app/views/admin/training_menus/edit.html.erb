@@ -2,8 +2,17 @@
   <div class="row">
   	<%= render 'admin/homes/admin_menu' %>
   	<div class="col-xs-9">
+  		<div class="panel panel-warning">
+  	  	<div class="panel-heading">
+  	  	  <h4>トレーニングメニュー登録</h4>
+        </div>
+        <div class="panel-body">
+	  	  <%= form_for(@training_menu, url: admin_training_menu_path) do |f| %>
+	        <%= f.text_field :training_manu, class: "form-control" %>
+		    <%= f.submit "変更する", class: "btn btn-primary" %>
+	      <% end %>
+	    </div>
+	  </div>
   	</div>
   </div>
 </div>
-
-ここは編集
