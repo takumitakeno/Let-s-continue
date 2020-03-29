@@ -1,6 +1,6 @@
 <div class="container">
   <div class="row">
-  	<%= render 'admin/homes/admin_menu' %>
+  	<%= render 'admin/homes/admin_menu', user: current_user %>
   	<div class="col-xs-9">
   	  <div class="panel panel-warning">
   	  	<div class="panel-heading">
@@ -8,7 +8,7 @@
         </div>
         <div class="panel-body">
 	  	  <%= form_for(@training_menu, url: admin_training_menus_path) do |f| %>
-	        <%= f.text_field :training_manu, class: "form-control" %>
+	        <%= f.text_field :menu, class: "form-control" %><br>
 		    <%= f.submit "登録する", class: "btn btn-primary" %>
 	      <% end %>
 	    </div>
@@ -31,7 +31,7 @@
 	          <tr>
 	          	<td></td>
 	        	<td><%= training_menu.id %></td>
-	            <td><%= training_menu.training_manu %></td>
+	            <td><%= training_menu.menu %></td>
 	            <td><%= link_to "編集", edit_admin_training_menu_path(training_menu) %></td>
 	            <td><%= link_to "削除", admin_training_menu_path(training_menu), method: :delete, data: {confirm: "本当に削除してもよろしいですか？"} %></td>
 	          </tr>

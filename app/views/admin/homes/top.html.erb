@@ -1,5 +1,8 @@
 <div class="container">
   <div class="row">
-  	<%= render 'admin/homes/admin_menu' %>
+  	<%= render 'admin/homes/admin_menu', user: current_user %>
+  	<div class="col-xs-9">
+  		 <%= line_chart User.group_by_day(:created_at).count %>
+   </div>
   </div>
 </div>

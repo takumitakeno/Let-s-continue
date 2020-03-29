@@ -4,7 +4,7 @@ class PostsController < ApplicationController
 		if params[:tag_name]
 	     @posts = Post.tagged_with("#{params[:tag_name]}")
 	  else
-	     @posts = Post.all
+	     @posts = Post.all.order(created_at: :desc)
 	  end
     end
 
