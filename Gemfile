@@ -75,3 +75,8 @@ gem 'font-awesome-rails'
 gem 'acts-as-taggable-on', '~> 6.0'
 gem 'ransack'
 gem 'faker'
+gem 'chartkick'
+gem 'groupdate'
+group :production do
+  gem 'mysql2'
+end

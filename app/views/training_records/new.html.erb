@@ -7,9 +7,9 @@
   	  	  <h4>トレーニングを記録</h4>
         </div>
         <div class="panel-body">
-  	  	  <%= form_with model: @training_record do |f| %>
+  	  	  <%= form_for @training_record do |f| %>
             <p>メニューを選択</p>
-            <%= f.collection_select(:training_menu_id, @training_menus, :id, :menu, {prompt: "メニューを選択してください"} ) %>
+            <%= f.collection_select(:training_menu_id, @training_menus, :id, :menu, {prompt: "メニューを選択してください"}) %>
             <p>重さ</p>
             <%= f.text_field :weight, class: "form-control" %><br>
             <p>回数</p>

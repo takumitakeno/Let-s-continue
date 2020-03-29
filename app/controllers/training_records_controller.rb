@@ -7,7 +7,12 @@ class TrainingRecordsController < ApplicationController
     end
 
 	def index
+     @training_records = TrainingRecord.where(user_id: current_user.id)
 	end
+
+    def show
+     @training_record = TrainingRecord.find(params[:id])
+    end
 
     def create
      training_record = TrainingRecord.new(training_menu_params)
