@@ -7,12 +7,12 @@
   	  	  <h4>トレーニング履歴一覧</h4>
         </div>
         <div class="panel-body">
-          <% @training_records.each do |training_record| %>
+          <% @menus_records.each do |menus_record| %>
           <ul class="list-group">
             <li class="list-group-item">
-  	          <%= link_to training_record_path(training_record) do %>
-  	            <%= training_record.training_menu.menu %>
-  	          <% end %>
+  	          <%= link_to training_menus_path(menus_record, menu_id: menus_record.id) do %>
+  	            <%= menus_record.menu %>
+              <% end %>
             </li>
           </ul>
           <% end %>

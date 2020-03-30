@@ -1,0 +1,32 @@
+<div class="container">
+  <div class="row">
+    <%= render 'users/profire', user: current_user %>
+    <div class="col-xs-9">
+      <div class="row">
+      	<div class="col-xe-12">
+      		<%= line_chart @training_records.group_by_day(:created_at).sum(:weight) %>
+      	</div>
+      </div>
+      <table class="table">
+      	<thead>
+      		<tr>
+      		  <th>種目</th>
+      		  <th>重量</th>
+      		  <th>回数</th>
+      		  <th>トレーニング日</th>
+      		</tr>
+      	</thead>
+      	<tbody>
+      	<% @training_records.each do |training_record| %>
+      		<tr>
+      		  <td><%= training_record.training_menu.menu %></td>
+      		  <td><%= training_record.weight %></td>
+      		  <td><%= training_record.rep %></td>
+      		  <td><%= training_record.created_at %></td>
+      		</tr>
+      	<% end %>
+      	</tbody>
+      </table>
+    </div>
+  </div>
+</div>

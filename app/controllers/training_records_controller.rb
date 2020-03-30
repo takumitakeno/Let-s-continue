@@ -7,11 +7,22 @@ class TrainingRecordsController < ApplicationController
     end
 
 	def index
-     @training_records = TrainingRecord.where(user_id: current_user.id)
-	end
+     @training_records = current_user.training_records
+     @menus_id = []
+     @menus_records =[]
+
+     @training_records.each do |training_record|
+       unless @menus_id.index(training_record.training_menu.id)
+           @menus_id <<  training_record.training_menu.id
+           @menus_records << training_record.training_menu
+       end
+     end
+    end
 
     def show
      @training_record = TrainingRecord.find(params[:id])
+     @training_records = TrainingRecord.where(user_id: current_user.id, training_menu_id: params[:id])
+     # binding.pry
     end
 
     def create
@@ -32,3 +43,5 @@ class TrainingRecordsController < ApplicationController
         params.require(:training_record).permit(:weight, :rep, :training_menu_id)
     end
 end
+
+
