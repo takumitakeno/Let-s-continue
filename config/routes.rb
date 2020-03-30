@@ -26,6 +26,7 @@ Rails.application.routes.draw do
 
   resources :relation_ships, only: [:create, :destroy]
   resources :training_records
+  resources :training_menus 
 
   resources :posts do
     resources :post_messages, only: [:create, :destroy]

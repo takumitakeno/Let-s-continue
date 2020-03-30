@@ -12,7 +12,7 @@ class Admin::TrainingMenusController < ApplicationController
 
 	def create
 	  training_menu = TrainingMenu.new(training_menu_params)
-	  binding.pry
+	  # binding.pry
 	  training_menu.save
 	  redirect_to admin_training_menus_path
 	end
@@ -26,7 +26,7 @@ class Admin::TrainingMenusController < ApplicationController
     def destroy
       training_menu = TrainingMenu.find(params[:id])
       training_menu.destroy
-      binding.pry
+      # binding.pry
       redirect_to admin_training_menus_path
     end
 
