@@ -1,33 +1,28 @@
-.top-image{
-	height:500px;
-	width:100%;
-	background-color:red;
-	padding-top:70px;
-}
-
 .image-text-box{
-	height:300px;
+	height:250px;
 	width:600px;
-	background-color:green;
+	padding:50px;
 	margin:0 auto;
 }
 
 .image-text{
-	color:white;
+	color:orange;
 	font-size:40px;
 	text-align: center;
+	opacity:0.5
 }
 
 .fit-box{
 	background-color:#43b0d4;
 	width:100%;
-	height:320px;
+	height:200px;
+	opacity:0.7
 }
 
 .boxin{
-	width:980px;
-	padding: 53px 10px;
-	margin: 0 auto;
+    text-aline:center;
+    padding: 50px;
+    color:white;
 }
 
 .boxin-p{
@@ -39,8 +34,18 @@ main{
 	margin-top:50px;
 }
 
+
+
 footer{
 	width:100%;
 	height:100px;
 	background-color:orange;
+	opacity:0.7
+
+}
+
+.footer-text{
+    margin-top:100px;
+	color:white;
+	padding:40px 30px;
 }
