@@ -8,6 +8,7 @@
         </div>
         <div class="panel-body">
   	  	  <%= form_for @training_record do |f| %>
+            <%= render 'layouts/error_messages', model: f.object %>
             <p>メニューを選択</p>
             <%= f.collection_select(:training_menu_id, @training_menus, :id, :menu, {prompt: "メニューを選択してください"}) %>
             <p>重さ</p>

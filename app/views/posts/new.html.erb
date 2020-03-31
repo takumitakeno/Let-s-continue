@@ -15,6 +15,7 @@
         </div>
         <div class="panel-body">
           <%= form_for (@post) do |f| %>
+            <%= render 'layouts/error_messages', model: f.object %>
             <h4>トレーニング画像</h4>
             <%= f.attachment_field :training_image %><br>
             <h4>トレーニング内容</h4>

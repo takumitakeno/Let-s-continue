@@ -5,6 +5,7 @@
   	  <div class="panel panel-default">
         <div class="panel-body">
           <%= form_for (@user) do |f| %>
+            <%= render 'layouts/error_messages', model: f.object %>
             <h4>プロフィール画像</h4>
     			  <%= f.attachment_field :profile_image %><br>
     			  <h4>名前</h4>

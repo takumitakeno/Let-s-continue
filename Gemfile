@@ -79,6 +79,7 @@ gem 'ransack'
 gem 'faker'
 gem 'chartkick'
 gem 'groupdate'
+gem 'rails-i18n'
 group :production do
   gem 'mysql2'
 end
