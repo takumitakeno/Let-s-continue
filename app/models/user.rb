@@ -3,8 +3,8 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :omniauthable
   has_many :sns_credentials, dependent: :destroy
-
-
+  validates :user_name, presence: true
+  validates :introduction, length: {maximum: 50 }
   devise :database_authenticatable, :registerable,
           :recoverable, :rememberable, :validatable,
           :omniauthable, omniauth_providers: %i(google_oauth2)
