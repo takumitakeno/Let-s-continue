@@ -8,12 +8,13 @@
         </div>
         <div class="panel-body">
   	  	  <%= form_for @training_record do |f| %>
+            <%= render 'layouts/error_messages', model: f.object %>
             <p>メニューを選択</p>
             <%= f.collection_select(:training_menu_id, @training_menus, :id, :menu, {prompt: "メニューを選択してください"}) %>
             <p>重さ</p>
-            <%= f.text_field :weight, class: "form-control" %><br>
+            <%= f.text_field :weight, class: "form-control", placeholder: "例：50または60.5" %><br>
             <p>回数</p>
-            <%= f.text_field :rep, class: "form-control" %><br>
+            <%= f.text_field :rep, class: "form-control", placeholder: "例：10 " %><br>
             <%= f.submit "記録する", class: "btn btn-primary" %>
           <% end %>
 	      </div>

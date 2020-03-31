@@ -11,22 +11,27 @@ class Admin::TrainingMenusController < ApplicationController
 	end
 
 	def create
-	  training_menu = TrainingMenu.new(training_menu_params)
-	  # binding.pry
-	  training_menu.save
-	  redirect_to admin_training_menus_path
+	  @training_menu = TrainingMenu.new(training_menu_params)
+	  if  @training_menu.save
+	      redirect_to admin_training_menus_path
+	  else
+          @training_menus = TrainingMenu.all
+          render "index"
+      end
 	end
 
 	def update
-	  training_menu = TrainingMenu.find(params[:id])
-	  training_menu.update(training_menu_params)
-	  redirect_to admin_training_menus_path
+	  @training_menu = TrainingMenu.find(params[:id])
+	  if  @training_menu.update(training_menu_params)
+	      redirect_to admin_training_menus_path
+	  else
+	  	  render "edit"
+	  end
     end
 
     def destroy
       training_menu = TrainingMenu.find(params[:id])
       training_menu.destroy
-      # binding.pry
       redirect_to admin_training_menus_path
     end
 

@@ -15,12 +15,13 @@
         </div>
         <div class="panel-body">
           <%= form_for (@post) do |f| %>
+            <%= render 'layouts/error_messages', model: f.object %>
             <h4>トレーニング画像</h4>
             <%= f.attachment_field :training_image %><br>
             <h4>トレーニング内容</h4>
-            <%= f.text_area :post, class: "form-control", size: "5x5" %><br>
+            <%= f.text_area :post, class: "form-control", size: "5x5", placeholder: "255文字以内" %><br>
             <h4>タグ</h4>
-            <%= f.text_field :tag_list, value: @post.tag_list.join(','), class: "form-control" %><br>
+            <%= f.text_field :tag_list, value: @post.tag_list.join(','), class: "form-control", placeholder: "タグを複数つける場合は、半角,で区切ってください。" %><br>
             <%= f.submit "投稿する", class: "btn btn-default" %>
           <% end %>
         </div>
