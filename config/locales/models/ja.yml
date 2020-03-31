@@ -4,6 +4,7 @@ ja:
       post: 投稿
       user: ユーザー
       training_record: トレーニング履歴
+      training_menu: メニュー
     attributes:
         post:
           post: 投稿
@@ -14,3 +15,5 @@ ja:
           weight: 重さ
           rep: 回数
           training_menu_id: メニュー
+        training_menu:
+          menu: メニュー

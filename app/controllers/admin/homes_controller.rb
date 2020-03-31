@@ -1,7 +1,6 @@
 class Admin::HomesController < ApplicationController
 	before_action :admin_user
 	def top
-		
 	end
 
 	private
