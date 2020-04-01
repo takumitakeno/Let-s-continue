@@ -26,13 +26,9 @@
                   <p><%= time_ago_in_words(post.created_at) %>前に投稿</p>
                 </div>
                 <div class="col-xs-2">
-                  <% if current_user != post.user %>
-                    <% if post.user.followed_by?(current_user) %>
-                      <%=link_to "フォロー済み", relation_ship_path(post, params: {followed_id: post.user.id}), class: "btn btn-primary",method: :delete %>
-                    <% else %>
-                        <%=link_to "フォローする", relation_ships_path(post, params: {followed_id: post.user.id}), class: "btn btn-default",method: :post %>
-                    <% end %>
-                  <% end %>
+                  <div id="follow_<%= post.user.id %>">
+                    <%= render 'relation_ships/follow', user: post.user %>
+                  </div>
                 </div>
               </div>
       	  	</div>
