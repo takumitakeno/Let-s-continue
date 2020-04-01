@@ -5,13 +5,13 @@
     </div>
     <div class="col-xs-4 col-xs-offset-6">
   	  <%= search_form_for @q, url: admin_users_path do |f| %>
-  	    <%= f.label :ユーザー検索 %>
+  	    <%= f.label :会員検索 %>
   	    <%= f.search_field :user_name_cont %>
   	    <%= f.submit "検索する", class: "glyphicon glyphicon-search" %>
       <% end %>
     </div>
   </div>
-  <div class="row">
+  <div class="row">　
   	<%= render 'admin/homes/admin_menu', user: current_user %>
     <div class="col-xs-9">
       <% @admin_users.each do |user| %>

@@ -47,8 +47,11 @@
               <div class="col-xs-2">
                 <%= attachment_image_tag post.user, :profile_image, format: "jpg", size:"50x50", fallback: "no_image.jpg",  class: "img-circle"%>
               </div>
-              <div class="col-xs-7">
+              <div class="col-xs-5">
                 <%= post.user.user_name %>
+              </div>
+              <div class="col-xs-3">
+                <p><%= time_ago_in_words(post.created_at) %>前に投稿</p>
               </div>
             </div>
           </div>
