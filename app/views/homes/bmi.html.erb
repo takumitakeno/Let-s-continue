@@ -3,20 +3,72 @@
   	<div class="col-xs-8 col-xs-offset-2">
   	  <div class="row">
   	  	<div class="col-xs-12">
-  	  	  <h2>BMIチェック</h2>
+  	  	  <h2>BMIチェック。今の状態を確認しよう！</h2>
   	  	</div>
   	  </div>
   	  <div class="panel panel-default">
         <div class="panel-body">
-	  	  <%= form_tag users_bmi_Calculation_path do %>
-	  	    <p>身長</p>
-	        <%= text_field_tag "height" %><br>
-	        <p>体重</p>
-	        <%= text_field_tag "weight" %><br>
-	        <%= submit_tag "計算", class: "btn btn-primary btn-block" %>
-	      <% end %>
+	  	    <%= form_tag users_bmi_Calculation_path do %>
+  	  	    <div class="form-group">
+              <label>身長</label>
+              <input type="text" class="form-control" name="height" >
+            </div>
+  	        <div class="form-group">
+              <label>体重</label>
+              <input type="text" class="form-control" name="weight" ><br>
+            </div>
+  	        <%= submit_tag "計算", class: "btn btn-primary btn-block" %>
+  	      <% end %>
+	      </div>
 	    </div>
-	  </div>
+      <h3 class="bmi_introduction">BMIとは？</h3>
+      <p>　肥満度を表す指標として国際的に用いられている体格指数で、[体重(kg)]÷[身長(m)の2乗]で求められます。</p>
+      <table class="table table-bordered">
+        <thead>
+          <tr class="active">
+            <th>状態</th>
+            <th colspan="2">BMI指標</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>痩せすぎ (重度の痩せ)</td>
+            <td>16.00未満</td>
+            <td rowspan="3">低体重(18.50未満)</td>
+          </tr>
+          <tr>
+            <td>痩せ (中度の痩せ)</td>
+            <td>16.00以上〜17.00未満</td>
+          </tr>
+          <tr>
+            <td>痩せぎみ (軽度の痩せ)</td>
+            <td>17.00以上〜18.50未満</td>
+          </tr>
+          <tr>
+            <td>普通</td>
+            <td>18.50以上〜25.00未満</td>
+            <td>標準</td>
+          </tr>
+          <tr>
+            <td>過体重 (前肥満)</td>
+            <td>25.00以上〜30.00未満</td>
+            <td>太り気味 (25.00以上)</td>
+          </tr>
+          <tr>
+            <td>肥満 (1度)</td>
+            <td>30.00以上〜35.00未満</td>
+            <td rowspan="3">肥満 (30.00以上)</td>
+          </tr>
+          <tr>
+            <td>肥満 (2度)</td>
+            <td>35.00以上〜40.00未満</td>
+          </tr>
+          <tr>
+            <td>肥満 (3度)</td>
+            <td>40.00以上</td>
+          </tr>
+        </tbody>
+      </table>
   	</div>
   </div>
 </div>

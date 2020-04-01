@@ -10,6 +10,5 @@ class HomesController < ApplicationController
 	  @weight = params[:weight].to_f
 	  @height_total = @height * @height
 	  @calculation = @weight / @height_total
-	  # binding.pry
 	end
 end
