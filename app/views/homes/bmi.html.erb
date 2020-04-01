@@ -1,1 +1,22 @@
-ここはbmi測定
+<div class="container">
+  <div class="row">
+  	<div class="col-xs-8 col-xs-offset-2">
+  	  <div class="row">
+  	  	<div class="col-xs-12">
+  	  	  <h2>BMIチェック</h2>
+  	  	</div>
+  	  </div>
+  	  <div class="panel panel-default">
+        <div class="panel-body">
+	  	  <%= form_tag users_bmi_Calculation_path do %>
+	  	    <p>身長</p>
+	        <%= text_field_tag "height" %><br>
+	        <p>体重</p>
+	        <%= text_field_tag "weight" %><br>
+	        <%= submit_tag "計算", class: "btn btn-primary btn-block" %>
+	      <% end %>
+	    </div>
+	  </div>
+  	</div>
+  </div>
+</div>

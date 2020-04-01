@@ -16,6 +16,7 @@ Rails.application.routes.draw do
   get "posts/new" => "posts#new"
   get "homes/about" => "homes#about"
   get "users/bmi" => "homes#bmi"
+  post "users/bmi_Calculation" => "homes#bmi_calculation"
   get "posts/tags" => "posts#post_tags_index"
   get "training_record/new" => "training_records#new"
 
