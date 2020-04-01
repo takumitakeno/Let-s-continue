@@ -6,9 +6,10 @@ class HomesController < ApplicationController
 	end
 
 	def bmi_calculation
-	  @height = params[:height].to_f
+	  @height = params[:height].to_f / 100
 	  @weight = params[:weight].to_f
-	  # @calculation = @weight/@height
-	  binding.pry
+	  @height_total = @height * @height
+	  @calculation = @weight / @height_total
+	  # binding.pry
 	end
 end
