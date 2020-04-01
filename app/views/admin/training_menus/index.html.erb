@@ -1,5 +1,10 @@
 <div class="container">
   <div class="row">
+    <div class="col-xs-2">
+      <p>ここは管理人専用です</p>
+    </div>
+  </div>
+  <div class="row">
   	<%= render 'admin/homes/admin_menu', user: current_user %>
   	<div class="col-xs-9">
   	  <div class="panel panel-warning">
@@ -20,7 +25,7 @@
       	  <h4>メニュー一覧</h4>
 	      <table class="table table-bordered">
 	      	<thead>
-	      	  <tr>
+	      	  <tr class="active">
 	      	  	<th>番号</th>
 	      	  	<th>id</th>
 	      	  	<th>menu_name</th>

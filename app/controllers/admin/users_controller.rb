@@ -9,6 +9,12 @@ class Admin::UsersController < ApplicationController
 	  @user = User.find(params[:id])
 	  @posts = @user.posts
 	end
+
+	def destroy
+	  user = User.find(params[:id])
+	  user.destroy
+	  redirect_to admin_users_path
+	end
 	def admin_user
       redirect_to root_path unless current_user.admin?
     end

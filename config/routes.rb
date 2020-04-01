@@ -27,7 +27,7 @@ Rails.application.routes.draw do
 
   resources :relation_ships, only: [:create, :destroy]
   resources :training_records
-  resources :training_menus 
+  resources :training_menus
 
   resources :posts do
     resources :post_messages, only: [:create, :destroy]
@@ -38,9 +38,9 @@ Rails.application.routes.draw do
   	# get "/users" => "admin_users#index"
     get "homes/top" => "homes#top"
     get "posts/tags" => "posts#post_tags_index"
-  	resources :users, only: [:index, :show]
-    resources :posts, only: [:index, :show]
+  	resources :users, only: [:index, :show, :destroy]
+    resources :posts, only: [:index, :show, :destroy]
     resources :training_menus, only: [:index, :edit, :create, :update, :destroy]
-
+    resources :post_messages, only: [:destroy]
   end
 end

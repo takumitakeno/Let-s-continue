@@ -18,7 +18,7 @@
             </div>
             <div class="col-xs-2">
               <% if current_user.admin? && !(current_user == @user) %>
-                <%= link_to "退会させる", user_registration_path, method: :delete, data: {confirm: "本当に削除してもよろしいですか？"}, class: "btn btn-danger" %>
+                <%= link_to "退会させる", admin_user_path, method: :delete, data: {confirm: "本当に退会させますか？"}, class: "btn btn-danger" %>
               <% end %>
             </div>
           </div>

@@ -18,6 +18,12 @@ class Admin::PostsController < ApplicationController
 	  @post_messages = @post.post_messages
 	end
 
+	def destroy
+	  post = Post.find(params[:id])
+	  post.destroy
+	  redirect_to admin_posts_path
+	end
+
 	private
 	def admin_user
       redirect_to root_path unless current_user.admin?
