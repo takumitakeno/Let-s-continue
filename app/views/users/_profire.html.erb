@@ -3,7 +3,8 @@
 	  <ul class="list-group">
       <li class="list-group-item list-group-item-info ">
         <%= attachment_image_tag user, :profile_image, format: "jpeg", size:"50x50", fallback: "no_image.jpg", class: "img-circle" %>
-        <%= link_to "編集する", edit_user_path(user), class: "btn-sm btn-info" %>
+        <%= user.user_name %>
+        <%= link_to "編集する", edit_user_path(user) %>
       </li>
   		<li class="list-group-item list-group-item-info">
         <span class="glyphicon glyphicon-user" aria-hidden="true">
@@ -32,7 +33,7 @@
       </li>
   		<li class="list-group-item list-group-item-info">
         <span class="glyphicon glyphicon-signal" aria-hidden="true">
-          <%= link_to "トレーニング記録", new_training_record_path  %>
+          <%= link_to "トレーニングを記録する", training_record_new_path  %>
         </span>
       </li>
       <li class="list-group-item list-group-item-info">

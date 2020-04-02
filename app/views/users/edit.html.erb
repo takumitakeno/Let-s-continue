@@ -2,7 +2,7 @@
   <div class="row">
     <%= render 'users/profire', user: current_user %>
   	<div class="col-xs-9 ">
-  	  <div class="panel panel-default">
+  	  <div class="panel panel-info">
         <div class="panel-body">
           <%= form_for (@user) do |f| %>
             <%= render 'layouts/error_messages', model: f.object %>

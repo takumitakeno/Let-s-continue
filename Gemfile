@@ -80,6 +80,7 @@ gem 'faker'
 gem 'chartkick'
 gem 'groupdate'
 gem 'rails-i18n'
+gem "kaminari"
 group :production do
   gem 'mysql2'
 end

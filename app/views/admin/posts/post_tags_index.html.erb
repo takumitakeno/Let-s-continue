@@ -1,6 +1,8 @@
 <div class="container">
   <div class="row">
-    <p>ここは管理人専用です</p>
+    <div class="col-xs-2">
+      <p>ここは管理人専用です</p>
+    </div>
   </div>
   <div class="row">
   	<%= render 'admin/homes/admin_menu', user: current_user %>
@@ -27,6 +29,20 @@
               </div>
               <div class="col-xs-9">
                 <%= simple_format(post.post) %>
+              </div>
+            </div>
+          </div>
+          <div class="panel-body">
+            <div class="row">
+              <div class="col-xs-4 col-xs-offset-4">
+                <%= attachment_image_tag post, :training_image, format: 'jpeg', size: "200x200", class: "img-rounded" %>
+              </div>
+            </div>
+          </div>
+          <div class="panel-body">
+            <div class="row">
+              <div class="col-xs-3">
+                <h5><%= post.post_messages.count %> 件のコメント</h5>
               </div>
               <div class="col-xs-12">
                 <%= render "admin/posts/tags", post: post %>

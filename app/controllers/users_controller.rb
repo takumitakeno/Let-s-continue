@@ -3,7 +3,7 @@ class UsersController < ApplicationController
 	before_action :baria_user, only:[:edit]
 	def index
 	  @q = User.ransack(params[:q])
-    @users = @q.result(distinct: true)
+    @users = @q.result(distinct: true).page(params[:page]).per(10)
 	end
 	def show
     @user = User.find(params[:id])
@@ -26,12 +26,12 @@ class UsersController < ApplicationController
 
 	def follows
     @user = User.find(params[:id])
-    @users = @user.followings
+    @users = @user.followings.page(params[:page]).per(10)
     end
 
     def followers
     @user = User.find(params[:id])
-    @users = @user.followers
+    @users = @user.followers.page(params[:page]).per(10)
     end
 
 	private

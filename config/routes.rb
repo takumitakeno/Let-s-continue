@@ -14,6 +14,7 @@ Rails.application.routes.draw do
 
   root 'posts#index'
   get "posts/new" => "posts#new"
+  get "homes/top" => "homes#top"
   get "homes/about" => "homes#about"
   get "users/bmi" => "homes#bmi"
   post "users/bmi_Calculation" => "homes#bmi_calculation"
@@ -26,8 +27,8 @@ Rails.application.routes.draw do
   end
 
   resources :relation_ships, only: [:create, :destroy]
-  resources :training_records
-  resources :training_menus 
+  resources :training_records, only: [:index, :show, :create, :destroy]
+  resources :training_menus, only: [:index]
 
   resources :posts do
     resources :post_messages, only: [:create, :destroy]
@@ -35,12 +36,11 @@ Rails.application.routes.draw do
   end
 
   namespace :admin do
-  	# get "/users" => "admin_users#index"
     get "homes/top" => "homes#top"
     get "posts/tags" => "posts#post_tags_index"
-  	resources :users, only: [:index, :show]
-    resources :posts, only: [:index, :show]
+  	resources :users, only: [:index, :show, :destroy]
+    resources :posts, only: [:index, :show, :destroy]
     resources :training_menus, only: [:index, :edit, :create, :update, :destroy]
-
+    resources :post_messages, only: [:destroy]
   end
 end

@@ -10,16 +10,19 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
+//= require jquery
 //= require rails-ujs
 //= require activestorage
-//= require jquery
+//= require turbolinks
+//= require jquery.jscroll.min.js
 //= require bootstrap-sprockets
 //= require_tree .
 //= require chartkick
 //= require Chart.bundle
 
 
-$("document").ready(function() {
+
+$(function() {
     $("#theTarget").skippr();
 });
 
@@ -35,3 +38,4 @@ $(".theTarget").skippr({
     keyboardOnAlways : true,
     hidePrevious : false
 });
+

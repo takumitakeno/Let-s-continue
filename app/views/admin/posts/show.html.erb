@@ -20,7 +20,7 @@
                 <p><%= time_ago_in_words(@post.created_at) %>前に投稿</p>
               </div>
               <div class="col-xs-2">
-                <%= link_to "削除する", post_path(@post), method: :delete, data: {confirm: "本当に削除してもよろしいですか？"}, class: "btn btn-danger" %>
+                <%= link_to "削除する", admin_post_path(@post), method: :delete, data: {confirm: "本当に削除してもよろしいですか？"}, class: "btn btn-danger" %>
               </div>
       	    </div>
           </div>
@@ -36,8 +36,8 @@
           </div>
           <div class="panel-body">
             <div class="row">
-              <div class="col-xs-10 col-xs-offset-2">
-                <%= attachment_image_tag @post, :training_image, format: 'jpeg', size: "200x100", class: "img-rounded" %>
+              <div class="col-xs-4 col-xs-offset-4">
+                <%= attachment_image_tag @post, :training_image, format: 'jpeg', size: "200x200", class: "img-rounded" %>
               </div>
             </div>
           </div>
@@ -53,20 +53,21 @@
           </div>
         </div>
         <% @post_messages.each do |post_message| %>
-        <div class="panel panel-default">
-          <div class="panel-body">
-            <div class="row">
-              <div class="col-xs-2">
-                <%= attachment_image_tag post_message.user, :profile_image, format: "jpg", size:"50x50", class: "img-circle", fallback: "no_image.jpg"%>
-              </div>
-              <div class="col-xs-5">
-                <%= link_to post_message.user.user_name, admin_user_path(post_message.user) %>
-              </div>
-              <div class="col-xs-3">
-                <p><%= time_ago_in_words(post_message.created_at) %>前にコメント</p>
-              </div>
-              <div class="col-xs-2">
-                <%= link_to "コメント削除",  post_post_message_path(post_id: @post.id, id: post_message.id), method: :delete, remote: true, data: {confirm: "本当に削除してもよろしいですか？"}, class: "btn btn-danger destroy_book_#{@post.id}" %>
+          <div class="panel panel-warning">
+            <div class="panel-body">
+              <div class="row">
+                <div class="col-xs-2">
+                  <%= attachment_image_tag post_message.user, :profile_image, format: "jpg", size:"50x50", class: "img-circle", fallback: "no_image.jpg"%>
+                </div>
+                <div class="col-xs-5">
+                  <%= link_to post_message.user.user_name, admin_user_path(post_message.user) %>
+                </div>
+                <div class="col-xs-3">
+                  <p><%= time_ago_in_words(post_message.created_at) %>前にコメント</p>
+                </div>
+                <div class="col-xs-2">
+                  <%= link_to "コメント削除",  admin_post_message_path(post_id: @post.id, id: post_message.id), method: :delete, data: {confirm: "本当に削除してもよろしいですか？"}, class: "btn btn-danger" %>
+                </div>
               </div>
             </div>
             <div class="panel-body">

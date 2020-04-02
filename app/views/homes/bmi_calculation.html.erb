@@ -10,9 +10,9 @@
         <div class="panel-body">
           <p><span class="bmi"><%= @calculation.floor(2) %></span>です。</p>
           <% if @calculation >= 18.50 && @calculation <= 24.99 %>
-            <%= "少し肥満気味かも。トレーニングをがんばりましょう！" %>
-          <% elsif @calculation >= 25 %>
             <%= "いい感じです！この調子でトレーニングを頑張りましょう！" %>
+          <% elsif @calculation >= 25 %>
+            <%= "少し肥満気味かも。トレーニングをがんばりましょう！" %>
           <% else %>
             <%= "すこし痩せ気味かも。" %>
           <% end %>
@@ -64,6 +64,12 @@
       		</tr>
       	</tbody>
       </table>
+      <%= link_to "戻る", users_bmi_path %>
     </div>
   </div>
 </div>
+<footer>
+  <div class="footer-box">
+    <p class="footer-text">© T.takeno. 2020.</p>
+  </div>
+</footer>
