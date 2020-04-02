@@ -11,7 +11,7 @@ class TrainingRecordsController < ApplicationController
       @menus_id = []
       @menus_records =[]
 
-      @training_records.each do |training_record|
+      @training_records.includes(:training_menu).each do |training_record|
         unless @menus_id.index(training_record.training_menu.id)
            @menus_id <<  training_record.training_menu.id
            @menus_records << training_record.training_menu

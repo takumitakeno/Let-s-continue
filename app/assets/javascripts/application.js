@@ -33,7 +33,7 @@ $(".theTarget").skippr({
     navType : 'block',
     childrenElementType : 'div',
     arrows : true,
-    autoPlay : true,
+    autoPlay : false,
     autoPlayDuration : 1000,
     keyboardOnAlways : true,
     hidePrevious : false
