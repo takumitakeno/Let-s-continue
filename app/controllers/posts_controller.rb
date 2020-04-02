@@ -2,16 +2,16 @@ class PostsController < ApplicationController
 	before_action :authenticate_user!, except:[:index]
 	def post_tags_index
 	  if  params[:tag_name]
-	      @posts = Post.tagged_with("#{params[:tag_name]}")
+	      @posts = Post.tagged_with("#{params[:tag_name]}").page(params[:page]).per(10)
 	  else
-	      @posts = Post.all.order(created_at: :desc)
+	      @posts = Post.all.page(params[:page]).per(10)
 	  end
     end
 
 
 	def index
 	  @q = Post.ransack(params[:q])
-      @posts = @q.result(distinct: true).page(params[:page]).per(20)
+      @posts = @q.result(distinct: true).page(params[:page]).per(10)
 	end
 
 	def new

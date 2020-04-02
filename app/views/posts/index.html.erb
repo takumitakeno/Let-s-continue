@@ -11,62 +11,62 @@
     </div>
     <div class="row">
       <%= render 'users/profire', user: current_user %>
-      <div class="col-xs-9 jscroll">
-        <div class="post-content">
-      	<% @posts.each do |post| %>
-      	  <div class="panel panel-info">
-      	  	<div class="panel-body">
-              <div class="row">
-                <div class="col-xs-2">
-                  <%= attachment_image_tag post.user, :profile_image, format: "jpeg", size:"50x50", class: "img-circle", fallback: "no_image.jpg" %>
+      <div class="col-xs-9">
+        <div class="list-all jscroll">
+        	<% @posts.each do |post| %>
+        	  <div class="panel panel-info">
+        	  	<div class="panel-body">
+                <div class="row">
+                  <div class="col-xs-2">
+                    <%= attachment_image_tag post.user, :profile_image, format: "jpeg", size:"50x50", class: "img-circle", fallback: "no_image.jpg" %>
+                  </div>
+                  <div class="col-xs-4">
+        	  	      <%= link_to post.user.user_name, user_path(post.user) %>
+                  </div>
+                  <div class="col-xs-3">
+                    <p><%= time_ago_in_words(post.created_at) %>前に投稿</p>
+                  </div>
+                  <div class="col-xs-2">
+                    <div id="follow_<%= post.user.id %>">
+                      <%= render 'relation_ships/follow', user: post.user %>
+                    </div>
+                  </div>
                 </div>
-                <div class="col-xs-4">
-      	  	      <%= link_to post.user.user_name, user_path(post.user) %>
-                </div>
-                <div class="col-xs-3">
-                  <p><%= time_ago_in_words(post.created_at) %>前に投稿</p>
-                </div>
-                <div class="col-xs-2">
-                  <div id="follow_<%= post.user.id %>">
-                    <%= render 'relation_ships/follow', user: post.user %>
+        	  	</div>
+              <div class="panel-body">
+                <div class="row">
+                  <div class="col-xs-2">
+                    <p><strong>投稿内容</strong></p>
+                  </div>
+                  <div class="col-xs-9">
+                    <%= link_to simple_format(post.post), post_path(post) %>
                   </div>
                 </div>
               </div>
-      	  	</div>
-            <div class="panel-body">
-              <div class="row">
-                <div class="col-xs-2">
-                  <p><strong>投稿内容</strong></p>
-                </div>
-                <div class="col-xs-9">
-                  <%= link_to simple_format(post.post), post_path(post) %>
-                </div>
-              </div>
-            </div>
-            <div class="panel-body">
-              <div class="row">
-                <div class="col-xs-4 col-xs-offset-4">
-                  <%= attachment_image_tag post, :training_image, format: 'jpeg', size: "200x200", class: "img-rounded" %>
-                </div>
-              </div>
-            </div>
-            <div class="panel-body">
-              <div class="row">
-                <div class="col-xs-3">
-                  <div id="good_<%= post.id %>">
-                    <%= render 'goods/good', post: post %>
+              <div class="panel-body">
+                <div class="row">
+                  <div class="col-xs-4 col-xs-offset-4">
+                    <%= attachment_image_tag post, :training_image, format: 'jpeg', size: "200x200", class: "img-rounded" %>
                   </div>
-                  <h5><%= post.post_messages.count %> 件のコメント</h5>
                 </div>
               </div>
-              <div class="row">
-                <div class="col-xs-12">
-                  <%= render 'posts/tags', post: post %>
+              <div class="panel-body">
+                <div class="row">
+                  <div class="col-xs-3">
+                    <div id="good_<%= post.id %>">
+                      <%= render 'goods/good', post: post %>
+                    </div>
+                    <h5><%= post.post_messages.count %> 件のコメント</h5>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-xs-12">
+                    <%= render 'posts/tags', post: post %>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
-        <% end %>
+          <% end %>
         <%= paginate @posts %>
         </div>
       </div>
