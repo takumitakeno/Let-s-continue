@@ -2,7 +2,7 @@ class Admin::UsersController < ApplicationController
 	before_action :admin_user
 	def index
 	  @q = User.ransack(params[:q])
-      @admin_users = @q.result(distinct: true)
+      @admin_users = @q.result(distinct: true).page(params[:page]).per(10)
 	end
 
 	def show
