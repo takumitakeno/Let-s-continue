@@ -14,6 +14,7 @@ Rails.application.routes.draw do
 
   root 'posts#index'
   get "posts/new" => "posts#new"
+  get "homes/top" => "homes#top"
   get "homes/about" => "homes#about"
   get "users/bmi" => "homes#bmi"
   post "users/bmi_Calculation" => "homes#bmi_calculation"
@@ -35,7 +36,6 @@ Rails.application.routes.draw do
   end
 
   namespace :admin do
-  	# get "/users" => "admin_users#index"
     get "homes/top" => "homes#top"
     get "posts/tags" => "posts#post_tags_index"
   	resources :users, only: [:index, :show, :destroy]
