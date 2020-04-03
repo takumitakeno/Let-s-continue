@@ -16,6 +16,7 @@ Rails.application.routes.draw do
   get "posts/new" => "posts#new"
   get "homes/top" => "homes#top"
   get "homes/about" => "homes#about"
+  get "homes/community" => "homes#community"
   get "users/bmi" => "homes#bmi"
   post "users/bmi_Calculation" => "homes#bmi_calculation"
   get "posts/tags" => "posts#post_tags_index"
@@ -26,6 +27,7 @@ Rails.application.routes.draw do
     get :followers, on: :member
   end
 
+  resources :rooms, only: [:show, :create]
   resources :relation_ships, only: [:create, :destroy]
   resources :training_records, only: [:index, :show, :create, :destroy]
   resources :training_menus, only: [:index]

@@ -12,7 +12,7 @@
     <%= render 'users/profire', user: current_user %>
     <div class="col-xs-9">
       <div class="list-all jscroll">
-      	<% @posts.each do |post| %>
+      	<% @posts.includes(:user, :taggings).each do |post| %>
       	  <div class="panel panel-info">
       	  	<div class="panel-body">
               <div class="row">

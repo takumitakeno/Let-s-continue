@@ -7,9 +7,9 @@ class Admin::PostsController < ApplicationController
 
 	def post_tags_index
 	  if params[:tag_name]
-	    @posts = Post.includes(:taggings).tagged_with("#{params[:tag_name]}").page(params[:page]).per(10)
+	    @posts = Post.includes(:user, :taggings).tagged_with("#{params[:tag_name]}").page(params[:page]).per(10)
 	  else
-	    @posts = Post.includes(:taggings).all.page(params[:page]).per(10)
+	    @posts = Post.includes(:user, :taggings).all.page(params[:page]).per(10)
 	  end
 	end
 
