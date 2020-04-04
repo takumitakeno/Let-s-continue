@@ -2,24 +2,27 @@
   <div class="row">
     <%= render 'users/profire', user: current_user %>
     <div class="col-xs-9">
-
-      <% if user_signed_in? %>
-        <h2>トークルーム作成</h2>
-        <%= form_with model: @room do |f| %>
-          <%= f.label :name %>
-          <%= f.text_field :name %>
-          <%= f.submit %>
-        <% end %>
-
-        <h2>参加済トークルーム一覧</h2>
-        <% @rooms.each do |room| %>
+      <div class="panel panel-default">
+        <div class="panel-body">
+          <h2>コミュニティ作成</h2>
+          <%= form_with model: @room do |f| %>
+            <%= f.label :コミュニティ名 %>
+            <%= f.text_field :name, class: "form-control" %><br>
+            <%= f.submit "作成", class: "btn btn-primary btn-block" %>
+          <% end %>
+        </div>
+      </div>
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h2>参加コミュニティ一覧</h2>
+        </div>
+      </div>
+      <% @rooms.each do |room| %>
+      <div class="panel panel-default">
+        <div class="panel-body">
           <%= link_to room.name, room_path(room) %>
-        <% end %>
-
-        <h2>未参加トークルーム一覧</h2>
-        <% @nonrooms.each do |room| %>
-          <%= room.name %>
-        <% end %>
+        </div>
+      </div>
       <% end %>
     </div>
   </div>
