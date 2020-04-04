@@ -1,7 +1,13 @@
-<p><%= "ルーム名：#{@room.name}" %></p>
+<div class="container">
+  <div class="row">
+    <%= render 'users/profire', user: current_user %>
+    <div class="col-xs-9">
+      <p><%= "ルーム名：#{@room.name}" %></p>
 
-<input type="text" data-behavior="room_speaker"> // 投稿フォーム
-
-<div id="posts">
-  <%= render "post", collection: @posts %>
-</div
+      <input type="text" data-behavior="room_speak" data-user="<%= current_user.id %>" data-room="<%= @room.id %>">
+          <div id="chat" data-room_id="<%= @room.id %>" >
+            <%= render "post", collection: @chats %>
+          </div>
+    </div>
+  </div>
+</div> 

@@ -11,7 +11,7 @@ Rails.application.routes.draw do
   # scope :admins do
   # 	resources :users
   # end
-
+  mount ActionCable.server => '/cable'
   root 'posts#index'
   get "posts/new" => "posts#new"
   get "homes/top" => "homes#top"
