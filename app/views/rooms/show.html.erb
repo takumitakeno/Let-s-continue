@@ -6,8 +6,8 @@
 
       <input type="text" data-behavior="room_speak" data-user="<%= current_user.id %>" data-room="<%= @room.id %>">
           <div id="chat" data-room_id="<%= @room.id %>" >
-            <%= render "post", collection: @chats %>
+            <%= render @chats %>
           </div>
     </div>
   </div>
-</div> 
+</div>
