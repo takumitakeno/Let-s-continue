@@ -11,7 +11,6 @@ Rails.application.routes.draw do
   # scope :admins do
   # 	resources :users
   # end
-  
   root 'posts#index'
   get "posts/new" => "posts#new"
   get "homes/top" => "homes#top"
@@ -27,7 +26,7 @@ Rails.application.routes.draw do
     get :followers, on: :member
   end
 
-  resources :rooms, only: [:show, :create]
+  resources :rooms, only: [:index, :show, :create]
   resources :relation_ships, only: [:create, :destroy]
   resources :training_records, only: [:index, :show, :create, :destroy]
   resources :training_menus, only: [:index]
