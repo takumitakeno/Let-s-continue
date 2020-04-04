@@ -2,12 +2,18 @@
   <div class="row">
     <%= render 'users/profire', user: current_user %>
     <div class="col-xs-9">
-      <p><%= "ルーム名：#{@room.name}" %></p>
-
-      <input type="text" data-behavior="room_speak" data-user="<%= current_user.id %>" data-room="<%= @room.id %>">
-          <div id="chat" data-room_id="<%= @room.id %>" >
-            <%= render @chats %>
-          </div>
+      <div class="panel panel-default">
+        <div class="panel-body">
+          <p><%= "コミュニティ名：#{@room.name}" %></p>
+        </div>
+      </div>
+      <div class="form-group has-success ">
+        <label>ここにコメント</label>
+        <input type="text" class="form-control" placeholder="50文字以内で入力" data-behavior="room_speak" data-user="<%= current_user.id %>" data-room="<%= @room.id %>">
+      </div>
+      <div id="chat" data-room_id="<%= @room.id %>" >
+        <%= render @chats %>
+      </div>
     </div>
   </div>
 </div>

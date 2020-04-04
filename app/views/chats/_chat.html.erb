@@ -1,3 +1,12 @@
 <div class="chat">
-  <p><%= chat.message %></p>
+  <div class="panel panel-default">
+    <div class="panel-body">
+      <%= attachment_image_tag chat.user, :profile_image, format: "jpeg", size:"50x50", fallback: "no_image.jpg", class: "img-circle" %>
+      <%= chat.user.user_name %>
+      <%= chat.created_at %>
+    </div>
+    <div class="panel-body">
+      <p><%= chat.message %></p>
+    </div>
+  </div>
 </div>
