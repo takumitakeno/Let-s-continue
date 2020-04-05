@@ -8,7 +8,7 @@ class RoomChannel < ApplicationCable::Channel
   end
 
   def speak(data)
-  	
+  	# binding.pry
     chat = Chat.create!(message: data['message'],
                  user_id: current_user.id,
                  room_id: params['room_id'])
