@@ -13,9 +13,9 @@
 ActiveRecord::Schema.define(version: 2020_04_03_014705) do
 
   create_table "chats", force: :cascade do |t|
-    t.string "message"
-    t.integer "user_id"
-    t.integer "room_id"
+    t.string "message", null: false
+    t.integer "user_id", null: false
+    t.integer "room_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -59,7 +59,7 @@ ActiveRecord::Schema.define(version: 2020_04_03_014705) do
   end
 
   create_table "rooms", force: :cascade do |t|
-    t.string "name"
+    t.string "name", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -101,7 +101,7 @@ ActiveRecord::Schema.define(version: 2020_04_03_014705) do
   end
 
   create_table "training_menus", force: :cascade do |t|
-    t.string "menu"
+    t.string "menu", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -116,8 +116,8 @@ ActiveRecord::Schema.define(version: 2020_04_03_014705) do
   end
 
   create_table "user_rooms", force: :cascade do |t|
-    t.integer "user_id"
-    t.integer "room_id"
+    t.integer "user_id", null: false
+    t.integer "room_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["room_id"], name: "index_user_rooms_on_room_id"
