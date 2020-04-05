@@ -43,5 +43,6 @@ Rails.application.routes.draw do
     resources :posts, only: [:index, :show, :destroy]
     resources :training_menus, only: [:index, :edit, :create, :update, :destroy]
     resources :post_messages, only: [:destroy]
+    resources :rooms, only: [:index, :destroy]
   end
 end

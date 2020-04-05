@@ -5,10 +5,20 @@
     </div>
   </div>
   <div class="row">
-  	<%= render 'admin/homes/admin_menu', user: current_user %>
+    <%= render 'admin/homes/admin_menu', user: current_user %>
   	<div class="col-xs-9">
-  		 <%= line_chart User.group_by_day(:created_at).count %>
-       <h3>累計登録人数：<%= User.count %>人です</h3>
-   </div>
+      <div class="row">
+        <div class="col-xs-12">
+          <h3>累計登録人数：<%= User.count %>人です</h3>
+  		    <%= line_chart User.group_by_day(:created_at).count %>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-12">
+          <h3>累計コミュニティ数：<%= Room.count %>です</h3>
+          <%= line_chart Room.group_by_day(:created_at).count %>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
