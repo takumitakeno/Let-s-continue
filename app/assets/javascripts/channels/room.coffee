@@ -1,4 +1,4 @@
-document.addEventListener 'turbolinks:load', ->
+document.addEventListener 'DOMContentLoaded', ->
   room_id = $('#chat').data('room_id')
 
   App.room = App.cable.subscriptions.create { channel: "RoomChannel", room_id: room_id },
@@ -23,4 +23,4 @@ document.addEventListener 'turbolinks:load', ->
     if event.keyCode is 13 # return キーのキーコードが13
       App.room.speak event.target.value # speak メソッド, event.target.valueを引数に.
       event.target.value = ''
-      event.preventDefault() 
+      event.preventDefault()

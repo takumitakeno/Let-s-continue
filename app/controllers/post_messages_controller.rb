@@ -8,7 +8,6 @@ class PostMessagesController < ApplicationController
         if @post_message.save
            @post_messages = @post.post_messages
         else
-           @post_message = PostMssege.new
 	       @post_messages = @post.post_messages
 	       render :"posts/show"
         end
