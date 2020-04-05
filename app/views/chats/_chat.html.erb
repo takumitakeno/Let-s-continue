@@ -1,0 +1,23 @@
+
+  <div class="panel panel-default">
+    <div class="panel-body">
+      <div class="row">
+        <div class="col-xs-1">
+          <%= attachment_image_tag chat.user, :profile_image, format: "jpeg", size:"50x50", fallback: "no_image.jpg", class: "img-circle" %>
+        </div>
+        <div class="col-xs-3">
+          <%= chat.user.user_name %>
+        </div>
+        <div class="col-xs-3">
+          <p><%= time_ago_in_words(chat.created_at) %></p>
+        </div>
+      </div>
+    </div>
+    <div class="panel-body">
+      <div class="row">
+        <div class="col-xs-10 col-xs-offset-1">
+          <p><%= chat.message %></p>
+        </div>
+      </div>
+    </div>
+  </div>

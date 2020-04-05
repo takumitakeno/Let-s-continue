@@ -14,4 +14,12 @@ class HomesController < ApplicationController
 	  @height_total = @height * @height
 	  @calculation = @weight / @height_total
 	end
+
+	def community
+	  if user_signed_in?
+        @room = Room.new
+        @rooms = current_user.rooms
+        @nonrooms = Room.where(id: UserRoom.where.not(user_id: current_user.id).pluck(:id))
+      end
+	end
 end

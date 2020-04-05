@@ -1,4 +1,4 @@
-class TrainingRecordsController < ApplicationController
+ class TrainingRecordsController < ApplicationController
 	before_action :authenticate_user!
 
     def new

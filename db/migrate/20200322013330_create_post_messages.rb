@@ -3,7 +3,7 @@ class CreatePostMessages < ActiveRecord::Migration[5.2]
     create_table :post_messages do |t|
       t.integer :user_id, null: false
       t.integer :post_id, null: false
-      t.string :post_message
+      t.string :post_message, null: false
       t.timestamps
     end
   end
