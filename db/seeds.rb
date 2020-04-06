@@ -12,13 +12,16 @@
   password = "password"
   admin = false
   a = "今年は絶対に痩せます！（テスト）"
-  User.create!(user_name: name,
+  user = User.create!(user_name: name,
                email: email,
                password: password,
                password_confirmation: password,
                admin: admin,
                introduction: a
                )
+  Post.create(user_id: user.id,
+              post: "今日のトレーニングはベンチプレスとスクワット #{n+1}",
+              )
 end
 
 User.create!(
@@ -30,11 +33,6 @@ User.create!(
    introduction: 'はじめまして！管理者です'
 )
 
-50.times do |i|
-  Post.create(user_id: User.find(i+1).id,
-              post: "今日のトレーニングはベンチプレスとスクワット #{i+1}",
-              )
-end
 
 TrainingMenu.create!(
   menu: "スクワット"
