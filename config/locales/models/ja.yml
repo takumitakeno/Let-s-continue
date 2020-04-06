@@ -18,3 +18,5 @@ ja:
           rep: 回数
           training_menu_id: メニュー
           training_menu: メニュー
+        room:
+          name: コミュニティ名

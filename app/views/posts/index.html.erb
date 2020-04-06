@@ -25,7 +25,7 @@
           	  	      <%= link_to post.user.user_name, user_path(post.user) %>
                     </div>
                     <div class="col-xs-3">
-                      <p><%= time_ago_in_words(post.created_at) %>前に投稿</p>
+                      <p><%= time_ago_in_words(post.created_at) %>に投稿</p>
                     </div>
                     <div class="col-xs-2">
                       <div id="follow_<%= post.user.id %>">

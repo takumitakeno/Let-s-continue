@@ -6,6 +6,7 @@
         <div class="panel-body">
           <h2>コミュニティ作成</h2>
           <%= form_with model: @room, local: true do |f| %>
+            <%= render 'layouts/error_messages', model: f.object %>
             <%= f.label :コミュニティ名 %>
             <%= f.text_field :name, class: "form-control" %><br>
             <%= f.submit "作成", class: "btn btn-primary btn-block" %>
@@ -14,7 +15,7 @@
       </div>
       <div class="panel panel-default">
         <div class="panel-heading">
-          <h2>参加コミュニティ一覧</h2>
+          <h2>作成コミュニティ一覧</h2>
         </div>
       </div>
       <% @rooms.each do |room| %>

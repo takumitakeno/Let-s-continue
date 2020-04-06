@@ -17,7 +17,7 @@
           	  	<%= link_to @post.user.user_name, admin_user_path(@post.user) %>
               </div>
               <div class="col-xs-3">
-                <p><%= time_ago_in_words(@post.created_at) %>前に投稿</p>
+                <p><%= time_ago_in_words(@post.created_at) %>に投稿</p>
               </div>
               <div class="col-xs-2">
                 <%= link_to "削除する", admin_post_path(@post), method: :delete, data: {confirm: "本当に削除してもよろしいですか？"}, class: "btn btn-danger" %>
@@ -63,7 +63,7 @@
                   <%= link_to post_message.user.user_name, admin_user_path(post_message.user) %>
                 </div>
                 <div class="col-xs-3">
-                  <p><%= time_ago_in_words(post_message.created_at) %>前にコメント</p>
+                  <p><%= time_ago_in_words(post_message.created_at) %>にコメント</p>
                 </div>
                 <div class="col-xs-2">
                   <%= link_to "コメント削除",  admin_post_message_path(post_id: @post.id, id: post_message.id), method: :delete, data: {confirm: "本当に削除してもよろしいですか？"}, class: "btn btn-danger" %>
