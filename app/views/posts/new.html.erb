@@ -22,7 +22,7 @@
             <%= f.text_area :post, class: "form-control", size: "5x5", placeholder: "255文字以内" %><br>
             <h4>タグ</h4>
             <%= f.text_field :tag_list, value: @post.tag_list.join(','), class: "form-control", placeholder: "タグを複数つける場合は、半角,で区切ってください。" %><br>
-            <%= f.submit "投稿する", class: "btn btn-default" %>
+            <%= f.submit "投稿する", class: "btn btn-primary btn-block" %>
           <% end %>
         </div>
       </div>

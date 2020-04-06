@@ -1,47 +1,50 @@
 <div class="container">
   <div class="row">
-  	<div class="col-xs-4 col-xs-offset-8">
-  	  <%= search_form_for @q do |f| %>
-  	    <%= f.label :会員検索 %>
-  	    <%= f.search_field :user_name_cont %>
-  	    <%= f.submit "検索する", class: "glyphicon glyphicon-search" %>
-      <% end %>
-    </div>
-  </div>
-  <div class="row">
     <%= render 'users/profire', user: current_user %>
     <div class="col-xs-9">
-      <div class="list-all jscroll">
-        <% @users.each do |user| %>
-          <div class="panel panel-info">
-            <div class="panel-body">
-              <div class="row">
-                <div class="col-xs-2">
-                  <%= attachment_image_tag user, :profile_image, format: "jpeg", size:"50x50", fallback: "no_image.jpg", class: "img-circle" %>
+      <div class="row">
+        <div class="col-xs-5 col-xs-offset-7">
+          <%= search_form_for @q do |f| %>
+            <%= f.label :会員検索 %>
+            <%= f.search_field :user_name_cont %>
+            <%= f.submit "検索する", class: "glyphicon glyphicon-search" %>
+          <% end %>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="list-all jscroll">
+            <% @users.each do |user| %>
+              <div class="panel panel-info">
+                <div class="panel-body">
+                  <div class="row">
+                    <div class="col-xs-2">
+                      <%= attachment_image_tag user, :profile_image, format: "jpeg", size:"50x50", fallback: "no_image.jpg", class: "img-circle" %>
+                    </div>
+                    <div class="col-xs-7">
+                      <%= link_to user.user_name, user_path(user) %>
+                    </div>
+                    <div class="col-xs-2 ">
+                      <div id="follow_<%= user.id %>">
+                        <%= render 'relation_ships/follow', user: user %>
+                      </div>
+                    </div>
+                  </div>
                 </div>
-                <div class="col-xs-7">
-                  <%= link_to user.user_name, user_path(user) %>
-                </div>
-                <div class="col-xs-2 ">
-                  <div id="follow_<%= user.id %>">
-                    <%= render 'relation_ships/follow', user: user %>
+                <div class="panel-body">
+                  <div class="row">
+                    <div class="col-xs-2">
+                      <p><strong>自己紹介</strong></p>
+                    </div>
+                    <div class="col-xs-9">
+                      <%= simple_format(user.introduction) %>
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
-            <div class="panel-body">
-              <div class="row">
-                <div class="col-xs-2">
-                  <p><strong>自己紹介</strong></p>
-                </div>
-                <div class="col-xs-9">
-                  <%= simple_format(user.introduction) %>
-                </div>
-              </div>
-            </div>
-          </div>
-        <% end %>
-      <%= paginate @users %>
+            <% end %>
+          <%= paginate @users %>
+        </div>
       </div>
     </div>
   </div>

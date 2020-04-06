@@ -11,9 +11,12 @@ ja:
         user:
           user_name: 名前
           introduction: 自己紹介文
+        training_menu:
+          menu: メニュー
         training_record:
           weight: 重さ
           rep: 回数
           training_menu_id: メニュー
-        training_menu:
-          menu: メニュー
+          training_menu: メニュー
+        room:
+          name: コミュニティ名
