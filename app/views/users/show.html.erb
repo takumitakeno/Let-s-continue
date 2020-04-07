@@ -51,7 +51,7 @@
               <div class="col-xs-2">
                 <%= attachment_image_tag post.user, :profile_image, format: "jpg", size:"50x50", fallback: "no_image.jpg",  class: "img-circle"%>
               </div>
-              <div class="col-xs-5">
+              <div class="col-xs-4">
                 <%= post.user.user_name %>
               </div>
               <div class="col-xs-3">
@@ -59,18 +59,16 @@
               </div>
             </div>
           </div>
-          <%= link_to post_path(post) do %>
-            <div class="panel-body">
-              <div class="row">
-                <div class="col-xs-2">
-                  <h4><strong>投稿</strong></h4>
-                </div>
-                <div class="col-xs-10">
-                  <%= simple_format(post.post) %>
-                </div>
+          <div class="panel-body">
+            <div class="row">
+              <div class="col-xs-2">
+                <p><strong><%= link_to "投稿内容", post_path(post) %></strong></p>
+              </div>
+              <div class="col-xs-9">
+                <%= simple_format(post.post) %>
               </div>
             </div>
-          <% end %>
+          </div>
           <div class="panel-body">
             <div class="row">
               <div class="col-xs-4 col-xs-offset-4">
