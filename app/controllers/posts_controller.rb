@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-	before_action :authenticate_user!, except:[:index]
+	before_action :authenticate_user!
 	def post_tags_index
 	  if  params[:tag_name]
 	      @posts = Post.includes(:user, :taggings).tagged_with("#{params[:tag_name]}").page(params[:page]).per(10)

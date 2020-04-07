@@ -29,7 +29,7 @@
               <div class="col-xs-2">
                 <p><strong>投稿内容</strong></p>
               </div>
-              <div class="col-xs-10">
+              <div class="col-xs-9">
                 <%= simple_format(@post.post) %>
               </div>
             </div>
@@ -52,7 +52,7 @@
             </div>
           </div>
         </div>
-        <% @post_messages.each do |post_message| %>
+        <% @post_messages.includes(:user).each do |post_message| %>
           <div class="panel panel-warning">
             <div class="panel-body">
               <div class="row">
