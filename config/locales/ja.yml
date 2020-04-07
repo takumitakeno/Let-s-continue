@@ -10,7 +10,7 @@ ja:
         other: "%{count}秒"
       less_than_x_minutes:
         one:   "1分"
-        other: "%{count}分"
+        other: "%{count}分前"
       x_minutes:
         one:   "約1分"
         other: "%{count}分前"
