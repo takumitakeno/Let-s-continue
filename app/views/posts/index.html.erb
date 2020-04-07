@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container" style="margin-top: 10px">
   <div class="row">
     <%= render 'users/profire', user: current_user %>
     <div class="col-xs-9">
@@ -37,10 +37,10 @@
                 <div class="panel-body">
                   <div class="row">
                     <div class="col-xs-2">
-                      <p><strong>投稿内容</strong></p>
+                      <p><strong><%= link_to "投稿内容", post_path(post) %></strong></p>
                     </div>
                     <div class="col-xs-9">
-                      <%= link_to simple_format(post.post), post_path(post) %>
+                      <%= simple_format(post.post) %>
                     </div>
                   </div>
                 </div>

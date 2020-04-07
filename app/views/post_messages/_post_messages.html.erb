@@ -9,13 +9,15 @@
   	      <%= link_to post_message.user.user_name, user_path(post_message.user) %>
         </div>
         <div class="col-xs-3">
-          <p><%= time_ago_in_words(post_message.created_at) %>前に投稿</p>
+          <p><%= time_ago_in_words(post_message.created_at) %>に投稿</p>
         </div>
+
         <% if post_message.user == current_user %>
           <div class="col-xs-3">
             <%= link_to "コメント削除",  post_post_message_path(post_id: @post.id, id: post_message.id), method: :delete, remote: true, data: {confirm: "本当に削除してもよろしいですか？"}, class: "btn btn-danger destroy_book_#{@post.id}" %>
           </div>
         <% end %>
+
       </div>
     </div>
     <div class="panel-body">
