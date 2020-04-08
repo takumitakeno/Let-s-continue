@@ -82,6 +82,7 @@ gem 'chartkick'
 gem 'groupdate'
 gem 'rails-i18n'
 gem "kaminari"
+gem 'paranoia'
 group :production do
   gem 'mysql2'
 end
