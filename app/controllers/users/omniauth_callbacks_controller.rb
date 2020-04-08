@@ -9,7 +9,7 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
 
   def callback_for(provider)
     @omniauth = request.env['omniauth.auth']
-    binding.pry
+    # binding.pry
     info = User.find_oauth(@omniauth)
     @user = info[:user]
     if @user.persisted? 
