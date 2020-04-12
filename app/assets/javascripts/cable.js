@@ -8,6 +8,6 @@
 (function() {
   this.App || (this.App = {});
 
-  App.cable = ActionCable.createConsumer("wss://lets-continue.xyz");
+  App.cable = ActionCable.createConsumer();
 
 }).call(this);
