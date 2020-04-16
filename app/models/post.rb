@@ -9,6 +9,6 @@ class Post < ApplicationRecord
 	                 length: { maximum: 255 }
 
 	def gooded_by?(user)
-      goods.where(user_id: user.id).exists?
-    end
+    goods.where(user_id: user.id).exists?
+  end
 end
