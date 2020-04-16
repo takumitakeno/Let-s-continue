@@ -11,11 +11,11 @@ class RoomsController < ApplicationController
   def create
   	@room = Room.new(room_params)
     if  @room.save
-  	    current_user.user_rooms.create(room_id: @room.id)
-  	    redirect_to room_path(@room)
+  	  current_user.user_rooms.create(room_id: @room.id)
+  	  redirect_to room_path(@room)
     else
-        @rooms = current_user.rooms
-        render :"homes/community"
+      @rooms = current_user.rooms
+      render :"homes/community"
     end
   end
 

@@ -2,16 +2,16 @@ class PostsController < ApplicationController
 	before_action :authenticate_user!
 	def post_tags_index
 	  if  params[:tag_name]
-	      @posts = Post.includes(:user, :taggings).tagged_with("#{params[:tag_name]}").page(params[:page]).per(10)
+	    @posts = Post.includes(:user, :taggings).tagged_with("#{params[:tag_name]}").page(params[:page]).per(10)
 	  else
-	      @posts = Post.includes(:user, :taggings).all.page(params[:page]).per(10)
+	    @posts = Post.includes(:user, :taggings).all.page(params[:page]).per(10)
 	  end
-    end
+  end
 
 
 	def index
 	  @q = Post.ransack(params[:q])
-      @posts = @q.result(distinct: true).page(params[:page]).per(10)
+    @posts = @q.result(distinct: true).page(params[:page]).per(10)
 	end
 
 	def new
@@ -22,7 +22,7 @@ class PostsController < ApplicationController
 	def edit
 	  @post = Post.find(params[:id])
 	  if  @post.user.id != current_user.id
-	  	  redirect_to user_path(current_user)
+	  	redirect_to user_path(current_user)
 	  end
 	end
 
@@ -36,19 +36,19 @@ class PostsController < ApplicationController
 	  @post = Post.new(post_params)
 	  @post.user_id = current_user.id
 	  if  @post.save
-	      redirect_to posts_path
+	    redirect_to posts_path
 	  else
-	  	  @user = current_user
-	  	  render "new"
+	  	@user = current_user
+	  	render "new"
 	  end
 	end
 
 	def update
 	  @post = Post.find(params[:id])
 	  if  @post.update(post_params)
-	      redirect_to post_path(@post)
+	    redirect_to post_path(@post)
 	  else
-	  	  render "edit"
+	  	render "edit"
 	  end
 	end
 
@@ -60,8 +60,8 @@ class PostsController < ApplicationController
 
 	private
 	def post_params
-      params.require(:post).permit(:post, :training_image, :tag_list)
-    end
+    params.require(:post).permit(:post, :training_image, :tag_list)
+  end
 
 end
 

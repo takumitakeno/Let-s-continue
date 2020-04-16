@@ -18,8 +18,8 @@ class HomesController < ApplicationController
 
 	def community
 	  if user_signed_in?
-        @room = Room.new
-        @rooms = current_user.rooms
-      end
+      @room = Room.new
+      @rooms = current_user.rooms
+    end
 	end
 end
