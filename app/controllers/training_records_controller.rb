@@ -6,7 +6,7 @@ class TrainingRecordsController < ApplicationController
     @training_menus = TrainingMenu.all
   end
 
-	def index
+  def index
     @training_records = current_user.training_records
     @menus_id = []
     @menus_records =[]
@@ -40,10 +40,10 @@ class TrainingRecordsController < ApplicationController
     redirect_to training_records_path
   end
 
-	private
-    def training_menu_params
-      params.require(:training_record).permit(:weight, :rep, :training_menu_id)
-    end
+  private
+  def training_menu_params
+    params.require(:training_record).permit(:weight, :rep, :training_menu_id)
+end
 end
 
 
