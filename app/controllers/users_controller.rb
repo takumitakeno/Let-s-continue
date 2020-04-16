@@ -16,18 +16,18 @@ class UsersController < ApplicationController
 
   def update
     @user = User.find(params[:id])
-      if  @user.update(user_params)
-        redirect_to user_path(current_user)
-      else
-        @posts = @user.posts
-        render "edit"
-      end
+    if  @user.update(user_params)
+      redirect_to user_path(current_user)
+    else
+      @posts = @user.posts
+      render "edit"
+    end
   end
 
   def follows
     @user = User.find(params[:id])
     @users = @user.followings.page(params[:page]).per(10)
-    end
+  end
 
   def followers
     @user = User.find(params[:id])
@@ -43,5 +43,5 @@ class UsersController < ApplicationController
     unless params[:id].to_i == current_user.id
       redirect_to user_path(current_user)
     end
-end
+  end
 end

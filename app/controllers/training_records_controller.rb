@@ -43,7 +43,7 @@ class TrainingRecordsController < ApplicationController
   private
   def training_menu_params
     params.require(:training_record).permit(:weight, :rep, :training_menu_id)
-end
+  end
 end
 
 

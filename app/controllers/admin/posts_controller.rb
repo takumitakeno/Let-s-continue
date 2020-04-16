@@ -3,7 +3,7 @@ class Admin::PostsController < ApplicationController
   before_action :admin_user
   def index
     @q = Post.includes(:user, :taggings).ransack(params[:q])
-      @posts = @q.result(distinct: true).page(params[:page]).per(10)
+    @posts = @q.result(distinct: true).page(params[:page]).per(10)
   end
 
   def post_tags_index
