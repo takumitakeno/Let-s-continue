@@ -9,18 +9,19 @@ class RoomsController < ApplicationController
   end
 
   def create
-  	@room = Room.new(room_params)
+    @room = Room.new(room_params)
     if  @room.save
-  	  current_user.user_rooms.create(room_id: @room.id)
-  	  redirect_to room_path(@room)
+      current_user.user_rooms.create(room_id: @room.id)
+      redirect_to room_path(@room)
     else
       @rooms = current_user.rooms
       render :"homes/community"
     end
   end
 
-private
+  private
   def room_params
     params.require(:room).permit(:name)
   end
 end
+  
