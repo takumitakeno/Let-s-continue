@@ -3,17 +3,17 @@
     <%= render 'users/profire', user: current_user %>
     <div class="col-xs-9">
       <%= line_chart @training_records.group_by_day(:weight).count %>
-        <div class="panel panel-info">
+	    <div class="panel panel-info">
 		    <div class="panel-body">
-		    <% @training_records.each do |training_record| %>
-		    <ul class="list-group">
-	    		<li class="list-group-item">
-	        		<%= training_record.training_menu.menu %>
-	    		</li>
-	 		</ul>
-	 		<% end %>
-			</div>
-  		</div>
+		      <% @training_records.each do |training_record| %>
+			      <ul class="list-group">
+				      <li class="list-group-item">
+				    	  <%= training_record.training_menu.menu %>
+				      </li>
+			      </ul>
+		     <% end %>
+		   </div>
+	    </div>
   	</div>
   </div>
 </div>

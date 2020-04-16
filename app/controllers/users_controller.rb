@@ -17,10 +17,10 @@ class UsersController < ApplicationController
 	def update
 	  @user = User.find(params[:id])
       if  @user.update(user_params)
-          redirect_to user_path(current_user)
+        redirect_to user_path(current_user)
       else
-      	  @posts = @user.posts
-      	  render "edit"
+      	@posts = @user.posts
+      	render "edit"
       end
 	end
 
@@ -29,19 +29,19 @@ class UsersController < ApplicationController
     @users = @user.followings.page(params[:page]).per(10)
     end
 
-    def followers
-    @user = User.find(params[:id])
-    @users = @user.followers.page(params[:page]).per(10)
-    end
-
-	private
-	def user_params
-		params.require(:user).permit(:user_name, :introduction, :profile_image)
+	def followers
+	  @user = User.find(params[:id])
+	  @users = @user.followers.page(params[:page]).per(10)
 	end
 
-	def baria_user
-  	unless params[:id].to_i == current_user.id
-  		redirect_to user_path(current_user)
-  	end
-  end
+	private
+		def user_params
+			params.require(:user).permit(:user_name, :introduction, :profile_image)
+		end
+
+		def baria_user
+			unless params[:id].to_i == current_user.id
+				redirect_to user_path(current_user)
+			end
+		end
 end

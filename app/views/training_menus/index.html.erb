@@ -4,25 +4,25 @@
     <div class="col-xs-9">
       <div class="row">
       	<div class="col-xs-12">
-      		<%= line_chart @menu_index %>
+      	  <%= line_chart @menu_index %>
           <table class="table">
           	<thead>
-          		<tr>
-                <th>トレーニング日</th>
-          		  <th>種目</th>
-          		  <th>重量</th>
-          		  <th>回数</th>
-          		</tr>
+							<tr>
+								<th>トレーニング日</th>
+							  <th>種目</th>
+							  <th>重量</th>
+							  <th>回数</th>
+							</tr>
           	</thead>
           	<tbody>
-          	<% @training_records.each do |training_record| %>
-          		<tr>
-                <td><%= training_record.created_at.strftime('%Y/%m/%d') %></td>
-          		  <td><%= training_record.training_menu.menu %></td>
-          		  <td><%= training_record.weight %></td>
-          		  <td><%= training_record.rep %></td>
-          		</tr>
-          	<% end %>
+          	  <% @training_records.each do |training_record| %>
+          		  <tr>
+									<td><%= training_record.created_at.strftime('%Y/%m/%d') %></td>
+									<td><%= training_record.training_menu.menu %></td>
+									<td><%= training_record.weight %></td>
+									<td><%= training_record.rep %></td>
+								</tr>
+          	  <% end %>
           	</tbody>
           </table>
         </div>

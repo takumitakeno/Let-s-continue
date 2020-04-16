@@ -39,22 +39,22 @@ class User < ApplicationRecord
   # グーグル認証のためのメソッド定義
   def self.without_sns_data(auth)
     user = User.where(email: auth.info.email).first
-	if user.present?
-	   sns = SnsCredential.create(
-	      uid: auth.uid,
-	      provider: auth.provider,
-	      user_id: user.id
-	    )
-	else
-	    user = User.new(
-	      user_name: auth.info.name,
-	      email: auth.info.email,
-	    )
-	    sns = SnsCredential.new(
-	      uid: auth.uid,
-	      provider: auth.provider
-	    )
-	end
+    if user.present?
+      sns = SnsCredential.create(
+        uid: auth.uid,
+        provider: auth.provider,
+        user_id: user.id
+      )
+    else
+      user = User.new(
+        user_name: auth.info.name,
+        email: auth.info.email,
+      )
+      sns = SnsCredential.new(
+        uid: auth.uid,
+        provider: auth.provider
+      )
+	  end
     return { user: user ,sns: sns}
   end
 
@@ -74,12 +74,12 @@ class User < ApplicationRecord
     provider = auth.provider
     snscredential = SnsCredential.where(uid: uid, provider: provider).first
     if snscredential.present?
-       user = with_sns_data(auth, snscredential)[:user]
-       sns = snscredential
+      user = with_sns_data(auth, snscredential)[:user]
+      sns = snscredential
     else
-       user = without_sns_data(auth)[:user]
-       sns = without_sns_data(auth)[:sns]
+      user = without_sns_data(auth)[:user]
+      sns = without_sns_data(auth)[:sns]
     end
     return { user: user ,sns: sns}
-   end
+  end
 end
