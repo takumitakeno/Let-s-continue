@@ -1,26 +1,26 @@
 <div class="container" style="margin-top: 40px">
   <div class="row">
-  	<div class="col-xs-8 col-xs-offset-2">
-  	  <div class="row">
-  	  	<div class="col-xs-12">
-  	  	  <h2>BMIチェック。今の状態を確認しよう！</h2>
-  	  	</div>
-  	  </div>
-  	  <div class="panel panel-default">
+    <div class="col-xs-8 col-xs-offset-2">
+      <div class="row">
+        <div class="col-xs-12">
+          <h2>BMIチェック。今の状態を確認しよう！</h2>
+        </div>
+      </div>
+      <div class="panel panel-default">
         <div class="panel-body">
-	  	    <%= form_tag users_bmi_Calculation_path do %>
-  	  	    <div class="form-group">
+          <%= form_tag users_bmi_Calculation_path do %>
+            <div class="form-group">
               <label>身長</label>
               <input type="text" class="form-control" name="height" >
             </div>
-  	        <div class="form-group">
+            <div class="form-group">
               <label>体重</label>
               <input type="text" class="form-control" name="weight" ><br>
             </div>
-  	        <%= submit_tag "計算", class: "btn btn-primary btn-block" %>
-  	      <% end %>
-	      </div>
-	    </div>
+            <%= submit_tag "計算", class: "btn btn-primary btn-block" %>
+          <% end %>
+        </div>
+      </div>
       <h3 class="bmi_introduction">BMIとは？</h3>
       <p>　肥満度を表す指標として国際的に用いられている体格指数で、[体重(kg)]÷[身長(m)の2乗]で求められます。</p>
       <table class="table table-bordered">
@@ -69,7 +69,7 @@
           </tr>
         </tbody>
       </table>
-  	</div>
+    </div>
   </div>
 </div>
 <footer>
