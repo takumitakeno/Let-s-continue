@@ -5,7 +5,7 @@
     </div>
   </div>
   <div class="row">
-  	<%= render 'admin/homes/admin_menu', user: current_user %>
+    <%= render 'admin/homes/admin_menu', user: current_user %>
     <div class="col-xs-9">
       <div class="row">
         <div class="col-xs-5 col-xs-offset-7">
@@ -22,7 +22,7 @@
             <% @admin_users.each do |user| %>
               <div class="panel panel-warning">
                 <div class="panel-body">
-                	<div class="row">
+                  <div class="row">
                     <div class="col-xs-2">
                       <%= attachment_image_tag user, :profile_image, format: "jpeg", size:"50x50", fallback: "no_image.jpg", class: "img-circle" %>
                     </div>
@@ -49,6 +49,6 @@
           <%= paginate @admin_users %>
         </div>
       </div>
-  	</div>
+    </div>
   </div>
 </div>
