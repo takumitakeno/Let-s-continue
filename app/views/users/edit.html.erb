@@ -1,20 +1,20 @@
 <div class="container">
   <div class="row">
     <%= render 'users/profire', user: current_user %>
-  	<div class="col-xs-9 ">
-  	  <div class="panel panel-info">
+    <div class="col-xs-9 ">
+      <div class="panel panel-info">
         <div class="panel-body">
           <%= form_for (@user) do |f| %>
             <%= render 'layouts/error_messages', model: f.object %>
             <h4>プロフィール画像</h4>
-    			  <%= f.attachment_field :profile_image %><br>
-    			  <h4>名前</h4>
-    			  <%= f.text_field :user_name, class: "form-control" %><br>
-    			  <h4>自己紹介文</h4>
-    			  <%= f.text_area :introduction, class: "form-control", placeholder: "50文字以内" %><br>
-    			  <%= f.submit "変更する", class: "btn btn-info btn-block" %>
-    		  <% end %>
-		    </div>
+            <%= f.attachment_field :profile_image %><br>
+            <h4>名前</h4>
+            <%= f.text_field :user_name, class: "form-control" %><br>
+            <h4>自己紹介文</h4>
+            <%= f.text_area :introduction, class: "form-control", placeholder: "50文字以内" %><br>
+            <%= f.submit "変更する", class: "btn btn-info btn-block" %>
+          <% end %>
+        </div>
       </div>
     </div>
   </div>
