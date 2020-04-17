@@ -2,22 +2,22 @@
   <div class="row">
     <%= render 'users/profire', user: current_user %>
     <div class="col-xs-9">
-     <div class="panel panel-info">
-  	  	<div class="panel-heading">
-  	  	  <h4>トレーニング履歴一覧</h4>
+      <div class="panel panel-info">
+        <div class="panel-heading">
+          <h4>トレーニング履歴一覧</h4>
         </div>
         <div class="panel-body">
           <% @menus_records.each do |menus_record| %>
-          <ul class="list-group">
-            <li class="list-group-item">
-  	          <%= link_to training_menus_path(menus_record, menu_id: menus_record.id) do %>
-  	            <%= menus_record.menu %>
-              <% end %>
-            </li>
-          </ul>
+            <ul class="list-group">
+              <li class="list-group-item">
+                <%= link_to training_menus_path(menus_record, menu_id: menus_record.id) do %>
+                  <%= menus_record.menu %>
+                <% end %>
+              </li>
+            </ul>
           <% end %>
-	      </div>
-	    </div>
+        </div>
+      </div>
     </div>
   </div>
-</div>
+</div>  
