@@ -1,16 +1,15 @@
 <div class="container" style="margin-top: 10px">
   <div class="row">
     <%= render 'users/profire', user: current_user %>
-
-  	<div class="col-xs-9">
-	    <div class="panel panel-info">
-	  	  <div class="panel-body">
+    <div class="col-xs-9">
+      <div class="panel panel-info">
+        <div class="panel-body">
           <div class="row">
             <div class="col-xs-2">
               <%= attachment_image_tag @post.user, :profile_image, format: "jpg", size:"50x50", class: "img-circle", fallback: "no_image.jpg"%>
             </div>
             <div class="col-xs-4">
-        	  	<%= link_to @post.user.user_name, user_path(@post.user) %>
+              <%= link_to @post.user.user_name, user_path(@post.user) %>
             </div>
             <div class="col-xs-3">
                 <p><%= time_ago_in_words(@post.created_at) %>に投稿</p>
@@ -21,7 +20,7 @@
                 <%= link_to "削除する", post_path(@post), method: :delete, data: {confirm: "本当に削除してもよろしいですか？"}, class: "btn-sm btn-danger" %>
               </div>
             <% end %>
-	  	    </div>
+          </div>
         </div>
         <div class="panel-body">
           <div class="row">
