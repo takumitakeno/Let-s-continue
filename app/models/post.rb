@@ -8,7 +8,7 @@ class Post < ApplicationRecord
   validates :post, presence: true,
                     length: { maximum: 255 }
 
-	def gooded_by?(user)
+  def gooded_by?(user)
     goods.where(user_id: user.id).exists?
   end
 end
