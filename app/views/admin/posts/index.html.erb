@@ -5,8 +5,8 @@
     </div>
   </div>
   <div class="row">
-  	<%= render 'admin/homes/admin_menu', user: current_user %>
-  	<div class="col-xs-9">
+    <%= render 'admin/homes/admin_menu', user: current_user %>
+    <div class="col-xs-9">
       <div class="row">
         <div class="col-xs-5 col-xs-offset-7">
           <%= search_form_for @q, url: admin_posts_path do |f| %>
@@ -22,7 +22,7 @@
             <% @posts.each do |post| %>
               <div class="panel panel-warning">
                 <div class="panel-body">
-                	<div class="row">
+                  <div class="row">
                     <div class="col-xs-2">
                       <%= attachment_image_tag post.user, :profile_image, format: "jpeg", size:"50x50", fallback: "no_image.jpg", class: "img-circle" %>
                     </div>
@@ -66,10 +66,10 @@
                 </div>
               </div>
             <% end %>
-          <%= paginate @posts %>
+            <%= paginate @posts %>
           </div>
         </div>
       </div>
-	  </div>
+    </div>
   </div>
 </div>
