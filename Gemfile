@@ -42,6 +42,7 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'pry-rails'
   gem 'pry-byebug'
+  gem 'factory_bot_rails'
 end
 
 group :development do
@@ -72,6 +73,7 @@ gem "refile", require: "refile/rails", github: 'manfe/refile'
 gem "refile-mini_magick"
 gem 'omniauth'
 gem 'omniauth-google-oauth2'
+gem 'omniauth-twitter'
 gem 'dotenv-rails'
 gem 'bootstrap-social-rails'
 gem 'font-awesome-rails'
