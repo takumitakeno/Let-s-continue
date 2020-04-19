@@ -117,4 +117,14 @@ RSpec.describe User, type: :model do
       end
     end
   end
+
+  describe "belongs_toのによるdestroy"  do
+    context "userモデルとの関係" do
+      it "userモデルが削除されるとpostが削除される" do
+          user = FactoryBot.create(:user, user_name: "test")
+          user.posts.create(post: 'テスト投稿です')
+          expect{ user.destroy }.to change{ Post.count }.by(-1)
+      end
+    end
+  end
 end
