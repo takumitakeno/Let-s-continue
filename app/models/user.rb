@@ -5,7 +5,7 @@ class User < ApplicationRecord
   validates :user_name, presence: true
   validates :introduction, length: {maximum: 50 }
   devise :database_authenticatable, :registerable,
-          :recoverable, :rememberable, :validatable,
+          :recoverable, :rememberable, :validatable,:confirmable,
           :omniauthable, omniauth_providers: %i(google_oauth2)
 
   attachment :profile_image
