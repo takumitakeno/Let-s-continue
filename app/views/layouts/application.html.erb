@@ -6,7 +6,11 @@
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <script src="https://code.jquery.com/jquery-3.3.1.js"
+      integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+      crossorigin="anonymous"></script>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jscroll/2.4.1/jquery.jscroll.min.js"></script>
 
   </head>
@@ -22,7 +26,9 @@
                   <li><%= link_to "home", posts_path %></li>
                   <li><%= link_to "about", homes_about_path %></li>
                   <li><%= link_to "BMI", users_bmi_path %></li>
+                  <li><%= link_to "my_account", edit_user_registration_path %></li>
                   <li><%= link_to "log_out", destroy_user_session_path, method: "delete" %></li>
+                  
                   <% if current_user.admin? && !(current_user == @user) %>
                   <li>
                     <%= link_to "管理者画面へ", admin_homes_top_path %>
@@ -43,5 +49,14 @@
       </nav>
     </header>
     <%= yield %>
+    <% if flash.any? %>
+      <script type="text/javascript">
+        <% flash.each do |key, value| %>
+          <% key = "success" if key == "notice" %>
+          <% key = "error" if key == "alert" %>
+          toastr['<%= key %>']('<%= value %>');
+        <% end %>
+      </script>
+    <% end %>
   </body>
 </html>
