@@ -86,6 +86,7 @@ gem 'rails-i18n'
 gem "kaminari"
 gem 'paranoia'
 gem 'devise-i18n-views'
+gem 'toastr-rails'
 group :production do
   gem 'mysql2'
 end

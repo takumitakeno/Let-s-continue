@@ -1,4 +1,3 @@
-# パスワードを忘れてログインできない場合、メールを送信してパスワード更新ページへ
 <div class="container">
   <div class="row">
     <div class="col-xs-8 col-xs-offset-2">
@@ -9,7 +8,6 @@
               <h2>パスワードをお忘れですか?</h2>
 
               <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
-                <%= render "devise/shared/error_messages", resource: resource %>
 
                 <div class="field">
                   <%= f.label :Eメール %><br />
@@ -27,3 +25,4 @@
     </div>
   </div>
 </div>
+<%= render "devise/shared/error_messages", resource: resource %>
