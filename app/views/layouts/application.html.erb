@@ -22,6 +22,7 @@
                   <li><%= link_to "home", posts_path %></li>
                   <li><%= link_to "about", homes_about_path %></li>
                   <li><%= link_to "BMI", users_bmi_path %></li>
+                  <li><%= link_to "my_account", edit_user_registration_path %></li>
                   <li><%= link_to "log_out", destroy_user_session_path, method: "delete" %></li>
                   <% if current_user.admin? && !(current_user == @user) %>
                   <li>
