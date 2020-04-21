@@ -6,10 +6,11 @@
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <script src="https://code.jquery.com/jquery-3.3.1.js"
       integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
       crossorigin="anonymous"></script>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jscroll/2.4.1/jquery.jscroll.min.js"></script>
 
   </head>
@@ -47,10 +48,15 @@
         </div>
       </nav>
     </header>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
-    
-    
     <%= yield %>
+    <% if flash.any? %>
+      <script type="text/javascript">
+        <% flash.each do |key, value| %>
+          <% key = "success" if key == "notice" %>
+          <% key = "error" if key == "alert" %>
+          toastr['<%= key %>']('<%= value %>');
+        <% end %>
+      </script>
+    <% end %>
   </body>
 </html>

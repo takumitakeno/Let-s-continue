@@ -4,7 +4,7 @@
       <div class="row">
         <div class="col-xs-12">
           <div class="panel panel-default">
-            <div class="panel-heading">
+            <div class="panel-body">
               <h2>アカウント情報</h2>
 
               <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
@@ -19,11 +19,11 @@
                 <% end %>
 
                 <div class="field">
-                  <%= f.label :password %> <i>(パスワードを変更しない場合は空のまま送信してください)</i><br />
+                  <%= f.label :password %> <i><strong>(パスワードを変更しない場合は空のまま送信してください)</i></strong>
                   <%= f.password_field :password, autocomplete: "new-password", class: "form-control" %>
                   <% if @minimum_password_length %>
                     <br />
-                    <em><%= @minimum_password_length %> characters minimum</em>
+                    <strong><%= @minimum_password_length %> 文字以上で入力してください</strong>
                   <% end %>
                 </div>
 
@@ -33,7 +33,7 @@
                 </div>
 
                 <div class="field">
-                  <%= f.label :current_password %> <i>(アカウント情報を更新するには現在のパスワードが必要です)</i>
+                  <%= f.label :current_password %> <i><strong>(アカウント情報を更新するには現在のパスワードが必要です)</i></strong>
                   <%= f.password_field :current_password, autocomplete: "current-password", class: "form-control" %>
                 </div><br>
 
