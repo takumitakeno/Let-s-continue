@@ -17,8 +17,9 @@ class UsersController < ApplicationController
   def update
     @user = User.find(params[:id])
     if  @user.update(user_params)
-      redirect_to user_path(current_user)
+      redirect_to user_path(current_user), notice: 'ユーザー情報を更新しました。'
     else
+      flash.now[:alert] = '更新できませんでした。'
       @posts = @user.posts
       render "edit"
     end
