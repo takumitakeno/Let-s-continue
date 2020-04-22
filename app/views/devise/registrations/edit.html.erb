@@ -14,10 +14,6 @@
                   <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control", placeholder: "新しいメールアドレスを入力" %>
                 </div>
 
-                <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-                  <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
-                <% end %>
-
                 <div class="field">
                   <%= f.label :password %> <i><strong>(パスワードを変更しない場合は空のまま送信してください)</i></strong>
                   <%= f.password_field :password, autocomplete: "new-password", class: "form-control" %>
@@ -41,16 +37,19 @@
                   <%= f.submit "アカウント情報を更新する", class: "btn btn-primary btn-block" %>
                 </div>
               <% end %>
-
-              <h3>退会</h3>
-
-              <p>退会する場合はボタンを押してください。 <%= button_to "退会する", registration_path(resource_name), 
-              data: { confirm: "本当に退会してもよろしいですか？退会した場合、同じメールアドレスで登録できなくなりますのでご注意ください。" }, method: :delete,
-              class: "btn btn-danger btn-block" %></p>
-
-              <%= link_to "戻る", :back %>
             </div>
           </div>
+          <% unless current_user.admin == true %> 
+            <div class="panel panel-default">
+              <div class="panel-body">
+                <h3>退会</h3>
+                  <p>退会する場合はボタンを押してください。 <%= button_to "退会する", registration_path(resource_name), 
+                  data: { confirm: "本当に退会してもよろしいですか？退会した場合、同じメールアドレスで登録できなくなりますのでご注意ください。" }, method: :delete,
+                  class: "btn btn-danger btn-block" %></p>
+                <%= link_to "戻る", :back %>
+              </div>
+            </div>
+          <% end %>
         </div>
       </div>
     </div>

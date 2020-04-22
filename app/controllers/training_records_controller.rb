@@ -27,8 +27,9 @@ class TrainingRecordsController < ApplicationController
     @training_record = TrainingRecord.new(training_menu_params)
     @training_record.user_id = current_user.id
     if @training_record.save
-      redirect_to training_records_path
+      redirect_to training_records_path, notice: 'トレーニングを記録しました。'
     else
+      flash.now[:alert] = 'トレーニングを記録できませんでした。'
       @training_menus = TrainingMenu.all
       render "new"
     end
