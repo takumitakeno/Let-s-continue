@@ -2,8 +2,16 @@
   <div class="row">
     <%= render 'users/profire', user: current_user %>
     <div class="col-xs-9">
-      <div class="panel">
-        <h3>コミュニティ一覧</h3>
+      <div class="row">
+        <div class="col-xs-6 col-xs-offset-6">
+          <div class="form-group form-inline">
+            <%= search_form_for @q, url: rooms_path do |f| %>
+              <%= f.label :コミュニティ検索 %>
+              <%= f.search_field :name_cont, class: "form-control", placeholder: "キーワードを入力" %>
+              <%= f.submit "検索する", class: "btn btn-default" %>
+            <% end %>
+          </div>
+        </div>
       </div>
       <% @rooms.each do |room| %>
         <div class="panel">
