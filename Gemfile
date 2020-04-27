@@ -89,6 +89,7 @@ gem "kaminari"
 gem 'paranoia'
 gem 'devise-i18n-views'
 gem 'toastr-rails'
+gem 'cocoon'
 group :production do
   gem 'mysql2'
 end
