@@ -1,6 +1,5 @@
 class Admin::PostsController < ApplicationController
-  before_action :authenticate_user!
-  before_action :admin_user
+  before_action :authenticate_admin!
   def index
     @q = Post.includes(:user, :taggings).ransack(params[:q])
     @posts = @q.result(distinct: true).page(params[:page]).per(10)
@@ -23,10 +22,5 @@ class Admin::PostsController < ApplicationController
     post = Post.find(params[:id])
     post.destroy
     redirect_to admin_posts_path
-  end
-
-  private
-  def admin_user
-    redirect_to root_path unless current_user.admin?
   end
 end

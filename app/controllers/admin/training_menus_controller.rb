@@ -1,7 +1,5 @@
 class Admin::TrainingMenusController < ApplicationController
-  before_action :authenticate_user!
-  before_action :admin_user
-
+  before_action :authenticate_admin!
   def index
     @training_menu = TrainingMenu.new
     @training_menus = TrainingMenu.all
@@ -40,8 +38,5 @@ class Admin::TrainingMenusController < ApplicationController
   private
   def training_menu_params
     params.require(:training_menu).permit(:menu)
-  end
-  def admin_user
-    redirect_to root_path unless current_user.admin?
   end
 end

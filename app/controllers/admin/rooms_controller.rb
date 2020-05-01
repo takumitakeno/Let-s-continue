@@ -1,6 +1,5 @@
 class Admin::RoomsController < ApplicationController
-  before_action :authenticate_user!
-  before_action :admin_user
+  before_action :authenticate_admin!
   def index
     @rooms = Room.all
   end
@@ -9,10 +8,5 @@ class Admin::RoomsController < ApplicationController
     room = Room.find(params[:id])
     room.destroy
     redirect_back(fallback_location: root_path)
-  end
-
-  private
-  def admin_user
-    redirect_to root_path unless current_user.admin?
   end
 end

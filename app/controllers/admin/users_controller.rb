@@ -1,6 +1,6 @@
 class Admin::UsersController < ApplicationController
-  before_action :authenticate_user!
-  before_action :admin_user
+  before_action :authenticate_admin!
+
   def index
     @q = User.ransack(params[:q])
     @admin_users = @q.result(distinct: true).page(params[:page]).per(10)
@@ -15,8 +15,5 @@ class Admin::UsersController < ApplicationController
     user = User.find(params[:id])
     user.destroy
     redirect_to admin_users_path
-  end
-  def admin_user
-    redirect_to root_path unless current_user.admin?
   end
 end
