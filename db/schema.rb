@@ -150,7 +150,6 @@ ActiveRecord::Schema.define(version: 2020_05_01_024215) do
     t.string "user_name", null: false
     t.string "profile_image_id"
     t.string "introduction"
-    t.boolean "admin", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.datetime "deleted_at"
