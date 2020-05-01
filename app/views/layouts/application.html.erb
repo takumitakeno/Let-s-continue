@@ -20,7 +20,7 @@
       <nav class="navbar navbar-fixed-top" style="background-color:#e3f2fd; padding: 20px">
         <div class="container-fluid">
           <div class="navbar-header">
-            <%= link_to "Let's continue!", "#", class: "navbar-brand" %>
+            <%= link_to "Let's continue!", root_path, class: "navbar-brand" %>
               <ul class="nav navbar-nav">
                 <% if user_signed_in? %>
                   <li><%= link_to "home", posts_path %></li>
