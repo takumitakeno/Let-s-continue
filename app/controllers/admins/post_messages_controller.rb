@@ -1,4 +1,4 @@
-class Admin::PostMessagesController < ApplicationController
+class Admins::PostMessagesController < ApplicationController
   before_action :authenticate_admin!
   def destroy
     post_message = PostMessage.find(params[:id])

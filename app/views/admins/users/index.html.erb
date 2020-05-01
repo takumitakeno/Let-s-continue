@@ -5,12 +5,12 @@
     </div>
   </div>
   <div class="row">
-    <%= render 'admin/homes/admin_menu', user: current_user %>
+    <%= render 'admins/homes/admin_menu' %>
     <div class="col-xs-9">
       <div class="row">
         <div class="col-xs-5 col-xs-offset-7">
           <div class="form-group form-inline">
-            <%= search_form_for @q, url: admin_users_path do |f| %>
+            <%= search_form_for @q, url: admins_users_path do |f| %>
               <%= f.label :会員検索 %>
               <%= f.search_field :user_name_cont, class: "form-control" %>
               <%= f.submit "検索する", class: "btn btn-default" %>
@@ -32,7 +32,7 @@
                       <%= user.user_name %>
                     </div>
                     <div class="col-xs-2">
-                      <%= link_to "ユーザー詳細へ", admin_user_path(user), class: "btn btn-warning" %>
+                      <%= link_to "ユーザー詳細へ", admins_user_path(user), class: "btn btn-warning" %>
                     </div>
                   </div>
                 </div>

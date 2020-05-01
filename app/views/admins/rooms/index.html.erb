@@ -5,7 +5,7 @@
     </div>
   </div>
   <div class="row">
-    <%= render 'admin/homes/admin_menu', user: current_user %>
+    <%= render 'admins/homes/admin_menu' %>
     <div class="col-xs-9">
       <div class="row">
         <div class="col-xs-12">
@@ -21,7 +21,7 @@
                     <%= room.name %>
                   </div>
                   <div class="col-xs-2 col-xs-offset-3">
-                    <%= link_to "削除する", admin_room_path(room), method: :delete, data: {confirm: "本当に削除してもよろしいですか？"}, class: "btn btn-danger" %>
+                    <%= link_to "削除する", admins_room_path(room), method: :delete, data: {confirm: "本当に削除してもよろしいですか？"}, class: "btn btn-danger" %>
                   </div>
                 </div>
                 <div class="row">

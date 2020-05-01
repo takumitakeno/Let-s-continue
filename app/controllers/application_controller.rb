@@ -5,7 +5,7 @@ class ApplicationController < ActionController::Base
 		when User
 			root_path
 		when Admin
-			admin_homes_top_path
+			admins_homes_top_path
 		end
   end
 

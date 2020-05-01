@@ -31,7 +31,7 @@
                   
                   <% if current_user.admin? && !(current_user == @user) %>
                   <li>
-                    <%= link_to "管理者画面へ", admin_homes_top_path %>
+                    <%= link_to "管理者画面へ", "#" %>
                   </li>
                   <% else %>
                   <p class="navbar-text">ようこそ<%= current_user.user_name %>さん！</p>

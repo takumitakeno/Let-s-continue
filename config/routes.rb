@@ -41,7 +41,7 @@ Rails.application.routes.draw do
     resource :goods, only: [:create, :destroy]
   end
 
-  namespace :admin do
+  namespace :admins do
     get "homes/top" => "homes#top"
     get "posts/tags" => "posts#post_tags_index"
   	resources :users, only: [:index, :show, :destroy]

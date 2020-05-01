@@ -1,4 +1,4 @@
-class Admin::TrainingMenusController < ApplicationController
+class Admins::TrainingMenusController < ApplicationController
   before_action :authenticate_admin!
   def index
     @training_menu = TrainingMenu.new
