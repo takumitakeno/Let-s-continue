@@ -12,7 +12,7 @@ class Admins::TrainingMenusController < ApplicationController
   def create
     @training_menu = TrainingMenu.new(training_menu_params)
     if  @training_menu.save
-      redirect_to admin_training_menus_path
+      redirect_to admins_training_menus_path
     else
       @training_menus = TrainingMenu.all
       render "index"
@@ -22,7 +22,7 @@ class Admins::TrainingMenusController < ApplicationController
   def update
     @training_menu = TrainingMenu.find(params[:id])
     if  @training_menu.update(training_menu_params)
-      redirect_to admin_training_menus_path
+      redirect_to admins_training_menus_path
     else
       render "edit"
     end
@@ -31,7 +31,7 @@ class Admins::TrainingMenusController < ApplicationController
   def destroy
     training_menu = TrainingMenu.find(params[:id])
     training_menu.destroy
-    redirect_to admin_training_menus_path
+    redirect_to admins_training_menus_path
   end
 
 
