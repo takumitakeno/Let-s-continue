@@ -67,12 +67,12 @@ Rails.application.configure do
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
     address:              'smtp.gmail.com',
-    enable_starttls_auto: true,
     port:                 587,
     domain:               'smtp.gmail.com',
     user_name:            ENV["DEVISE_MAIL"],
     password:             ENV["DEVISE_PW"],
     authentication:       "login"
+    enable_starttls_auto: true,
   }
   config.action_mailer.perform_caching = false
   config.action_mailer.default_url_options = { host: 'https://lets-continue.xyz' }
