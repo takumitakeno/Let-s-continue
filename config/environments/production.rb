@@ -71,8 +71,8 @@ Rails.application.configure do
     domain:               'smtp.gmail.com',
     user_name:            ENV["DEVISE_MAIL"],
     password:             ENV["DEVISE_PW"],
-    authentication:       "login"
-    enable_starttls_auto: true,
+    authentication:       "login",
+    enable_starttls_auto: true
   }
   config.action_mailer.perform_caching = false
   config.action_mailer.default_url_options = { host: 'https://lets-continue.xyz' }
