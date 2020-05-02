@@ -44,5 +44,25 @@ background-image: image-url('geert-pieters-NbpUM86Jo8Y-unsplash.jpg');
 	background-position: bottom;
 }
 
+// devisenで使用しているviveの高さ調整
+.devise_top{
+  margin-top: 90px;
+}
 
+// ユーザーログイン画面の高さ調整
+.log_in-top{
+  margin-top: 100px;
+}
+// ユーザーサインアップ画面の高さ調整
+.sign_up-top{
+  margin-top: 50px;
+}
+// ユーザーが使用するページの高さ調整
+.user_main{
+  margin-top: 10px;
+}
 
+// adminのログイン及びサインアップ画面の高さ調整
+.admin-start{
+  margin-top: 150px;
+}

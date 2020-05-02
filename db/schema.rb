@@ -10,7 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_08_074045) do
+ActiveRecord::Schema.define(version: 2020_05_01_024215) do
+
+  create_table "admins", force: :cascade do |t|
+    t.string "email", default: "", null: false
+    t.string "encrypted_password", default: "", null: false
+    t.string "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.boolean "admin", default: true
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["email"], name: "index_admins_on_email", unique: true
+    t.index ["reset_password_token"], name: "index_admins_on_reset_password_token", unique: true
+  end
 
   create_table "chats", force: :cascade do |t|
     t.string "message", null: false
@@ -137,12 +150,11 @@ ActiveRecord::Schema.define(version: 2020_04_08_074045) do
     t.string "user_name", null: false
     t.string "profile_image_id"
     t.string "introduction"
-    t.boolean "admin", default: false
+    t.datetime "deleted_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.datetime "deleted_at"
     t.index ["deleted_at"], name: "index_users_on_deleted_at"
-    t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["email"], name: "index_users_on_email", unique: true, where: "deleted_at IS NULL"
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 

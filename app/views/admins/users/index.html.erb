@@ -1,0 +1,56 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-2">
+      <p>ここは管理人専用です</p>
+    </div>
+  </div>
+  <div class="row">
+    <%= render 'admins/homes/admin_menu' %>
+    <div class="col-xs-9">
+      <div class="row">
+        <div class="col-xs-5 col-xs-offset-7">
+          <div class="form-group form-inline">
+            <%= search_form_for @q, url: admins_users_path do |f| %>
+              <%= f.label :会員検索 %>
+              <%= f.search_field :user_name_cont, class: "form-control" %>
+              <%= f.submit "検索する", class: "btn btn-default" %>
+            <% end %>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="list-all jscroll">
+            <% @admin_users.each do |user| %>
+              <div class="panel panel-warning">
+                <div class="panel-body">
+                  <div class="row">
+                    <div class="col-xs-2">
+                      <%= attachment_image_tag user, :profile_image, format: "jpeg", size:"50x50", fallback: "no_image.jpg", class: "img-circle" %>
+                    </div>
+                    <div class="col-xs-7">
+                      <%= user.user_name %>
+                    </div>
+                    <div class="col-xs-2">
+                      <%= link_to "ユーザー詳細へ", admins_user_path(user), class: "btn btn-warning" %>
+                    </div>
+                  </div>
+                </div>
+                <div class="panel-body">
+                  <div class="row">
+                    <div class="col-xs-2">
+                      <p><strong>自己紹介</strong></p>
+                    </div>
+                    <div class="col-xs-9">
+                      <%= simple_format(user.introduction) %>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            <% end %>
+          <%= paginate @admin_users %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

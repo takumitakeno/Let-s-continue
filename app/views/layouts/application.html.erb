@@ -20,7 +20,7 @@
       <nav class="navbar navbar-fixed-top" style="background-color:#e3f2fd; padding: 20px">
         <div class="container-fluid">
           <div class="navbar-header">
-            <%= link_to "Let's continue!", "#", class: "navbar-brand" %>
+            <%= link_to "Let's continue!", root_path, class: "navbar-brand" %>
               <ul class="nav navbar-nav">
                 <% if user_signed_in? %>
                   <li><%= link_to "home", posts_path %></li>
@@ -28,14 +28,12 @@
                   <li><%= link_to "BMI", users_bmi_path %></li>
                   <li><%= link_to "my_account", edit_user_registration_path %></li>
                   <li><%= link_to "log_out", destroy_user_session_path, method: "delete" %></li>
-                  
-                  <% if current_user.admin? && !(current_user == @user) %>
-                  <li>
-                    <%= link_to "管理者画面へ", admin_homes_top_path %>
-                  </li>
-                  <% else %>
-                  <p class="navbar-text">ようこそ<%= current_user.user_name %>さん！</p>
-                  <% end %> 　
+                  </li><p class="navbar-text">ようこそ<%= current_user.user_name %>さん！</p></li>
+                <% elsif admin_signed_in? %>
+                  <li><%= link_to "home", admins_homes_top_path %></li>
+                  <li><%= link_to "log_out", destroy_admin_session_path, method: "delete" %></li>
+                  <li><p class="navbar-text">管理人がログインしています</p></li>
+
                 <% else %>
                   <li><%= link_to "top", homes_top_path %></li>
                   <li><%= link_to "about", homes_about_path %></li>
