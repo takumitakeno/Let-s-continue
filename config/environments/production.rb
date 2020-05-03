@@ -69,9 +69,9 @@ Rails.application.configure do
     address:              'smtp.gmail.com',
     port:                 587,
     domain:               'smtp.gmail.com',
-    user_name:            ENV["DEVISE_MAIL"],
-    password:             ENV["DEVISE_PW"],
-    authentication:       "plain",
+    user_name:            ENV["NAME"],
+    password:             ENV["PASSWORD"],
+    authentication:       "login",
     enable_starttls_auto: true
   }
   config.action_mailer.perform_caching = false
