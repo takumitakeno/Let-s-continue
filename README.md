@@ -26,5 +26,5 @@
 ### 機能一覧
 https://docs.google.com/spreadsheets/d/1sev6F3e7hWLoQsvSpMtTa46u_01dsboivt69Flx8UPc/edit#gid=0
 
-###　ポートフォリオURL
+ポートフォリオURL
 https://lets-continue.xyz
